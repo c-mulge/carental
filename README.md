@@ -110,8 +110,8 @@ This is a project for a car rental website. It is a project for the College Mini
 - The project repot has flow chart, ERD, and UML diagram.
 
 ## Developers
--[Channveer Mulge](https://github.com/c-mulge)
--[Soham Shirke]
+-[Channveer Mulge](https://github.com/c-mulge).
+-[Soham Shirke](https://github.com/Sshirke-37).
 -[Siddhesh Sapkale]
 
 
