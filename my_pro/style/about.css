@@ -1,0 +1,224 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #0056b3;
+    --light-background: #f4f4f4;
+    --text-color: #333;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: var(--light-background);
+    color: var(--text-color);
+}
+
+.about-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+.hero-section {
+    background: linear-gradient(135deg, #1e293b, #3b82f6);
+    color: white;
+    text-align: center;
+    padding: 3rem 1rem;
+    margin-bottom: 2rem;
+    border-radius: 10px;
+}
+
+.hero-section h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.mission-section {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, #1e293b, #3b82f6);
+    color: white;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.mission-text {
+    flex: 2;
+    padding-right: 2rem;
+}
+
+.mission-image {
+    flex: 1;
+}
+
+.mission-image img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.team-section {
+    background: linear-gradient(135deg, #1e293b, #3b82f6);
+    color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.team-member {
+    text-align: center;
+    background: linear-gradient(135deg, #5294ff, #3b82f6);
+    padding: 1.5rem;
+    border-radius: 10px;
+}
+
+.team-member img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+}
+
+.values-section {
+    margin-top: 2rem;
+    background: linear-gradient(135deg, #1e293b, #3b82f6);
+    color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.value-item {
+    text-align: center;
+    padding: 1rem;
+    background: linear-gradient(135deg, #5294ff, #3b82f6);
+    border-radius: 10px;
+}
+
+
+/* Navbar Styles */
+.navbar {
+    background-color: var(--primary-color);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+}
+
+.navbar-menu {
+    display: flex;
+    list-style: none;
+}
+
+.navbar-menu li {
+    margin-left: 1.5rem;
+}
+
+.navbar-menu li a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.navbar-menu li a:hover {
+    color: #f0f0f0;
+}
+
+.navbar-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.navbar-toggle span {
+    height: 3px;
+    width: 25px;
+    background-color: white;
+    margin: 3px 0;
+    transition: 0.4s;
+}
+
+/* Rest of the previous CSS remains the same */
+.about-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+/* ... (previous CSS continues) ... */
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar-menu {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .navbar-menu.active {
+        display: flex;
+    }
+
+    .navbar-menu li {
+        margin: 1rem 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .navbar-toggle {
+        display: flex;
+        position: absolute;
+        right: 5%;
+        top: 1rem;
+    }
+
+    /* Mobile responsive styles from previous design */
+    .mission-section {
+        flex-direction: column;
+    }
+
+    .mission-text,
+    .mission-image {
+        width: 100%;
+        padding-right: 0;
+    }
+
+    .team-grid,
+    .values-grid {
+        grid-template-columns: 1fr;
+    }
+}

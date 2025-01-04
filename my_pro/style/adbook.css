@@ -1,0 +1,154 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #eef2f7;
+    color: #333;
+    line-height: 1.6;
+}
+
+.dashboard-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.navbar {
+    background-color: #3b82f6;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .logo h2 {
+    color: #ecf0f1;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.navbar .menu ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.navbar .menu ul li a {
+    color: #ecf0f1;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.navbar .menu ul li a:hover {
+    color: #1abc9c;
+}
+
+.header {
+    text-align: center;
+    font-size: 36px;
+    color: #3b82f6;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.table-container {
+    margin: 20px auto;
+    padding: 20px;
+    background: #ffffff;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    max-width: 95%;
+    overflow-x: auto;
+}
+
+.content-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto;
+    text-align: left;
+    font-size: 15px;
+}
+
+.content-table thead th {
+    background-color: #3b82f6;
+    color: white;
+    font-weight: bold;
+    padding: 15px 10px;
+    text-transform: capitalize;
+}
+
+.content-table tbody td {
+    padding: 12px 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.content-table tbody tr:nth-child(odd) {
+    background-color: #f8f9fa;
+}
+
+.content-table tbody tr:nth-child(even) {
+    background-color: #ffffff;
+}
+
+.content-table tbody tr:hover {
+    background-color: #e8f6f9;
+    transition: background-color 0.2s;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease, transform 0.2s;
+    color: white;
+    font-weight: bold;
+}
+
+button a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.approve-btn {
+    background-color: #27ae60;
+}
+
+.approve-btn:hover {
+    background-color: #2ecc71;
+    transform: scale(1.05);
+}
+
+.return-btn {
+    background-color: #e74c3c;
+}
+
+.return-btn:hover {
+    background-color: #c0392b;
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .navbar .menu ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .content-table {
+        font-size: 14px;
+    }
+
+    button {
+        padding: 8px 16px;
+    }
+}

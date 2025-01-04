@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - CaRental</title>
+    <link rel="stylesheet" href="style/about.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="#" class="navbar-brand">CaRental</a>
+        <div class="navbar-toggle" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="navbar-menu">
+            <li><a href="index.php">Home</a></li>
+            <li><a href="co.html">Contact</a></li>
+            <li><a href="login.php">Login</a></li>
+        </ul>
+    </nav>
+
+    <div class="about-container">
+        <section class="hero-section">
+            <h1>About CaRental</h1>
+            <p>Revolutionizing Car Rental with Convenience and Innovation</p>
+        </section>
+        <section class="mission-section">
+            <div class="mission-text">
+                <h2>Our Mission</h2>
+                <p>CaRental was founded with a simple yet powerful vision: to make car rentals accessible, convenient, and hassle-free for everyone. We understand that transportation is more than just moving from point A to point B – it's about providing freedom, flexibility, and reliable service.</p>
+                <br>
+                <p>Our web-based platform eliminates the traditional complexities of car rentals, offering users a seamless experience to browse, book, and manage their rental needs with just a few clicks.</p>
+            </div>
+            <div class="mission-image">
+                <img src="/api/placeholder/500/300" alt="CaRental Mission" />
+            </div>
+        </section>
+
+        <section class="team-section">
+            <h2 style="text-align: center; margin-bottom: 1.5rem;">Our Team</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="/api/placeholder/150/150" alt="Channveer Mulge" />
+                    <h3>Channveer Mulge</h3>
+                    <p>Project Lead & Developer</p>
+                </div>
+                <div class="team-member">
+                    <img src="/api/placeholder/150/150" alt="Siddhesh Sapkale" />
+                    <h3>Siddhesh Sapkale</h3>
+                    <p>Backend Developer</p>
+                </div>
+                <div class="team-member">
+                    <img src="/api/placeholder/150/150" alt="Soham Shirke" />
+                    <h3>Soham Shirke</h3>
+                    <p>Frontend Developer</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="values-section">
+            <h2 style="text-align: center; margin-bottom: 1.5rem;">Our Core Values</h2>
+            <div class="values-grid">
+                <div class="value-item">
+                    <h3>Convenience</h3>
+                    <p>Making car rentals simple and accessible for everyone.</p>
+                </div>
+                <div class="value-item">
+                    <h3>Transparency</h3>
+                    <p>Providing clear, upfront information about our services.</p>
+                </div>
+                <div class="value-item">
+                    <h3>Innovation</h3>
+                    <p>Continuously improving our platform to serve you better.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.querySelector('.navbar-menu');
+            menu.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
