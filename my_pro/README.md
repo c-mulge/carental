@@ -191,7 +191,7 @@ This is a web-based car rental system that allows users to rent cars online. The
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/car-rental-system.git
+   git clone https://github.com/c-mulge/carental.git
    ```
 
 2. Navigate to the project directory:
