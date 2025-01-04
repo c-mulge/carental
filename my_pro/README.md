@@ -8,7 +8,7 @@ This is a web-based car rental system that allows users to rent cars online. The
 ![Home Page](screenshots/index.png)
 
 ### Login Page
-![Login Page](screenshots/login.png)
+![Login Page](screenshots/user_login.png)
 
 ### Admin Dashboard
 ![Admin Dashboard](screenshots/admin_dashboard.png)
