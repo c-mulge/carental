@@ -181,3 +181,35 @@ The Car Rental System provides a comprehensive solution for renting cars online.
 - [MySQL Documentation](https://dev.mysql.com/doc/)
 - [Bootstrap Documentation](https://getbootstrap.com/docs/4.1/getting-started/introduction/)
 - [Tailwind CSS Documentation](https://tailwindcss.com/docs)
+
+
+## Setup
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/c-mulge/carental.git
+   ```
+
+2. Navigate to the project directory:
+   ```bash
+   cd my_pro
+   ```
+
+3. Set up the database and update the `connection.php` file with your database credentials.
+
+4. Start the server using XAMPP or any other local server environment.
+
+5. Open the application in your browser:
+   ```
+   http://localhost/pro/my_pro/index.php
+   ```
+
+## Developers
+- [Channveer Mulge](https://github.com/c-mulge)
+- [Soham Shirke](https://github.com/Sshirke-37)
+- [Siddhesh Sapkale]()
+
+
+## License
+
+This project is licensed under the MIT License.
