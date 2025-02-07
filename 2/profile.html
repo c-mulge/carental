@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BudgetFlow - Profile</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <div class="gradient-bg">
+    <div class="gradient-animation"></div>
+  </div>
+
+  <header class="header">
+    <nav class="navbar">
+      <div class="logo">
+        <a class="logo-link" href="index.html">
+          Budget<span>Flow</span>
+        </a>
+      </div>
+      <div class="nav-menu">
+        <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+        <li><a href="transactions.html" class="nav-link">Transactions</a></li>
+        <li><a href="budgets.html" class="nav-link">Budgets</a></li>
+        <li><a href="insights.html" class="nav-link">Insights</a></li>
+        <li><a href="#" class="nav-link active">Profile</a></li>
+        <li><a href="index.html" class="nav-link login-btn">Logout</a></li>
+      </div>
+    </nav>
+  </header>
+
+  <main class="profile-page">
+    <section class="profile-container">
+      <div class="profile-header">
+        <h1>My Profile</h1>
+      </div>
+
+      <div class="profile-grid">
+        <div class="profile-details">
+          <div class="profile-avatar">
+            <img src="/api/placeholder/150/150" alt="Profile Picture">
+            <button class="change-avatar-btn">Change</button>
+          </div>
+          <form class="profile-form">
+            <div class="form-group">
+              <label>Full Name</label>
+              <input type="text" value="Sarah Mitchell" readonly>
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" value="sarah.mitchell@email.com" readonly>
+            </div>
+            <div class="form-group">
+              <label>Phone</label>
+              <input type="tel" value="+1 (555) 123-4567">
+            </div>
+            <div class="form-group">
+              <label>Currency</label>
+              <select>
+                <option>USD ($)</option>
+                <option>EUR (€)</option>
+                <option>GBP (£)</option>
+              </select>
+            </div>
+            <button type="submit" class="primary-btn">Update Profile</button>
+          </form>
+        </div>
+
+        <div class="account-settings">
+          <h3>Account Settings</h3>
+          <div class="settings-section">
+            <h4>Security</h4>
+            <div class="setting-item">
+              <span>Change Password</span>
+              <button class="secondary-btn">Reset</button>
+            </div>
+            <div class="setting-item">
+              <span>Two-Factor Authentication</span>
+              <label class="toggle-switch">
+                <input type="checkbox">
+                <span class="slider"></span>
+              </label>
+            </div>
+          </div>
+
+          <div class="settings-section">
+            <h4>Notifications</h4>
+            <div class="setting-item">
+              <span>Email Alerts</span>
+              <label class="toggle-switch">
+                <input type="checkbox" checked>
+                <span class="slider"></span>
+              </label>
+            </div>
+            <div class="setting-item">
+              <span>Budget Warnings</span>
+              <label class="toggle-switch">
+                <input type="checkbox" checked>
+                <span class="slider"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <div class="logo">Budget<span>Flow</span></div>
+        <p>Smart financial management for everyone.</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 BudgetFlow. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <style>
+    .profile-page {
+      max-width: 1200px;
+      margin: 8rem auto 4rem;
+      padding: 0 2rem;
+    }
+
+    .profile-header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .profile-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .profile-avatar {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .profile-avatar img {
+      border-radius: 50%;
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      margin-bottom: 1rem;
+    }
+
+    .profile-form .form-group {
+      margin-bottom: 1rem;
+    }
+
+    .profile-form label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: var(--text-light);
+    }
+
+    .profile-form input,
+    .profile-form select {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+    }
+
+    .account-settings {
+      background: white;
+      border-radius: 1rem;
+      padding: 2rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .settings-section {
+      margin-bottom: 2rem;
+    }
+
+    .setting-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .toggle-switch {
+      position: relative;
+      display: inline-block;
+      width: 50px;
+      height: 24px;
+    }
+
+    .toggle-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: var(--text-light);
+      transition: .4s;
+      border-radius: 34px;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 16px;
+      width: 16px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      transition: .4s;
+      border-radius: 50%;
+    }
+
+    .toggle-switch input:checked + .slider {
+      background-color: var(--primary);
+    }
+
+    .toggle-switch input:checked + .slider:before {
+      transform: translateX(26px);
+    }
+  </style>
+</body>
+</html>

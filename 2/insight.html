@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BudgetFlow - Insights</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <div class="gradient-bg">
+    <div class="gradient-animation"></div>
+  </div>
+
+  <header class="header">
+    <nav class="navbar">
+      <div class="logo">
+        <a class="logo-link" href="index.html">
+          Budget<span>Flow</span>
+        </a>
+      </div>
+      <div class="nav-menu">
+        <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+        <li><a href="transactions.html" class="nav-link">Transactions</a></li>
+        <li><a href="budgets.html" class="nav-link">Budgets</a></li>
+        <li><a href="#" class="nav-link active">Insights</a></li>
+        <li><a href="profile.html" class="nav-link">Profile</a></li>
+        <li><a href="index.html" class="nav-link login-btn">Logout</a></li>
+      </div>
+    </nav>
+  </header>
+
+  <main class="insights-page">
+    <section class="insights-container">
+      <div class="insights-header">
+        <h1>Financial Insights</h1>
+        <select class="time-filter">
+          <option>Last 3 Months</option>
+          <option>This Year</option>
+          <option>All Time</option>
+        </select>
+      </div>
+
+      <div class="insights-grid">
+        <div class="insight-card spending-breakdown">
+          <h3>Spending Breakdown</h3>
+          <div class="chart-placeholder">
+            <i class="fas fa-chart-pie"></i>
+            <p>Category Spending Distribution</p>
+          </div>
+        </div>
+
+        <div class="insight-card income-vs-expense">
+          <h3>Income vs Expenses</h3>
+          <div class="chart-placeholder">
+            <i class="fas fa-chart-line"></i>
+            <p>Monthly Income and Expense Trend</p>
+          </div>
+        </div>
+
+        <div class="insight-card saving-trends">
+          <h3>Saving Trends</h3>
+          <div class="saving-stats">
+            <div class="stat-item">
+              <i class="fas fa-piggy-bank"></i>
+              <div>
+                <span>Total Savings</span>
+                <strong>$15,240</strong>
+              </div>
+            </div>
+            <div class="stat-item">
+              <i class="fas fa-chart-area"></i>
+              <div>
+                <span>Monthly Savings Rate</span>
+                <strong>22%</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="insight-card smart-suggestions">
+          <h3>Smart Suggestions</h3>
+          <ul class="suggestion-list">
+            <li>
+              <i class="fas fa-lightbulb"></i>
+              You can save $150 by switching to a cheaper phone plan
+            </li>
+            <li>
+              <i class="fas fa-lightbulb"></i>
+              Consider transferring $500 to high-yield savings account
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <div class="logo">Budget<span>Flow</span></div>
+        <p>Smart financial management for everyone.</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 BudgetFlow. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <style>
+    .insights-page {
+      max-width: 1200px;
+      margin: 8rem auto 4rem;
+      padding: 0 2rem;
+    }
+
+    .insights-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+
+    .insights-header h1 {
+      font-size: 2.5rem;
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .insights-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+
+    .insight-card {
+      background: white;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .chart-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 250px;
+      color: var(--text-light);
+    }
+
+    .chart-placeholder i {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+
+    .saving-stats {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .stat-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .stat-item i {
+      font-size: 2rem;
+      color: var(--primary);
+    }
+
+    .suggestion-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .suggestion-list li {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .suggestion-list i {
+      color: var(--secondary);
+    }
+  </style>
+</body>
+</html>

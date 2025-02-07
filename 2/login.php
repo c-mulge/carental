@@ -1,17 +1,50 @@
-<!-- signup.html -->
+<?php
+session_start();
+include 'connection.php';
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $email = $_POST['email'];
+    $password = $_POST['pass'];
+
+    // Fetch user from database
+    $stmt = $conn->prepare("SELECT user_id, name, password FROM users WHERE email = ?");
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $stmt->store_result();
+    
+    if ($stmt->num_rows > 0) {
+        $stmt->bind_result($id, $name, $hashed_password);
+        $stmt->fetch();
+
+        if (password_verify($password, $hashed_password)) {
+            $_SESSION['user_id'] = $id;
+            $_SESSION['name'] = $name;
+            echo "logged in";
+            header("Location: dashboard.php"); // Redirect to dashboard
+            exit();
+        } else {
+            $error = "Invalid password!";
+        }
+    } else {
+        $error = "No user found with this email!";
+    }
+    $stmt->close();
+    $conn->close();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up - BudgetFlow</title>
+    <title>Login - BudgetFlow</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="style3.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <!-- Include the same header as index.html -->
-    <header class="header">
+<header class="header">
         <nav class="navbar">
           <div class="logo">
             <a class="logo-link" href="index.html">
@@ -32,48 +65,37 @@
           </ul>
         </nav>
       </header>
-    
+
     <main class="auth-page">
         <div class="auth-container">
             <div class="auth-box">
-                <h1>Create Your Account</h1>
-                <p>Start your journey to better financial management</p>
+                <h1>Welcome Back</h1>
+                <p>Log in to your BudgetFlow account</p>
                 
-                <form class="auth-form">
-                    <div class="form-group">
-                        <label for="name">Full Name</label>
-                        <input type="text" id="name" required>
-                    </div>
+                <?php if (isset($error)): ?>
+                    <p class="error"><?php echo $error; ?></p>
+                <?php endif; ?>
+
+                <form class="auth-form" method="POST">
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" id="email" required>
+                        <input type="email" id="email" name="email" required>
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
-                        <input type="password" id="password" required>
+                        <input type="password" id="password" name="pass" required>
                     </div>
-                    <div class="form-group">
-                        <label for="confirm-password">Confirm Password</label>
-                        <input type="password" id="confirm-password" required>
-                    </div>
-                    <div class="form-terms">
-                        <label>
-                            <input type="checkbox" required>
-                            <span>I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></span>
-                        </label>
-                    </div>
-                    <button type="submit" class="auth-submit">Create Account</button>
+                    <button type="submit" class="auth-submit">Log In</button>
                 </form>
 
                 <div class="auth-alternate">
-                    <span>Already have an account?</span>
-                    <a href="login.html">Log in</a>
+                    <span>Don't have an account?</span>
+                    <a href="signup.php">Sign up</a>
                 </div>
             </div>
         </div>
     </main>
 
-    <!-- Include the same footer as index.html -->
     <footer class="footer">
         <div class="footer-content">
           <div class="footer-brand">

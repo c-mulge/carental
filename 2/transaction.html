@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BudgetFlow - Transactions</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <div class="gradient-bg">
+    <div class="gradient-animation"></div>
+  </div>
+
+  <header class="header">
+    <nav class="navbar">
+      <div class="logo">
+        <a class="logo-link" href="index.html">
+          Budget<span>Flow</span>
+        </a>
+      </div>
+      <div class="nav-menu">
+        <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+        <li><a href="#" class="nav-link active">Transactions</a></li>
+        <li><a href="budgets.html" class="nav-link">Budgets</a></li>
+        <li><a href="insights.html" class="nav-link">Insights</a></li>
+        <li><a href="profile.html" class="nav-link">Profile</a></li>
+        <li><a href="index.html" class="nav-link login-btn">Logout</a></li>
+      </div>
+    </nav>
+  </header>
+
+  <main class="transactions-page">
+    <section class="transactions-container">
+      <div class="transactions-header">
+        <h1>All Transactions</h1>
+        <div class="transactions-controls">
+          <select class="filter-select">
+            <option>All Categories</option>
+            <option>Food</option>
+            <option>Transportation</option>
+            <option>Entertainment</option>
+            <option>Bills</option>
+          </select>
+          <select class="filter-select">
+            <option>Last 30 Days</option>
+            <option>Last 3 Months</option>
+            <option>This Year</option>
+          </select>
+          <button class="primary-btn">Add Transaction</button>
+        </div>
+      </div>
+
+      <div class="transactions-list">
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Description</th>
+              <th>Category</th>
+              <th>Amount</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Feb 5, 2024</td>
+              <td>Grocery Shopping</td>
+              <td>Food</td>
+              <td class="expense">-$124.50</td>
+              <td>
+                <button class="edit-btn"><i class="fas fa-edit"></i></button>
+                <button class="delete-btn"><i class="fas fa-trash"></i></button>
+              </td>
+            </tr>
+            <!-- More transaction rows -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <div class="logo">Budget<span>Flow</span></div>
+        <p>Smart financial management for everyone.</p>
+      </div>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 BudgetFlow. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <style>
+    .transactions-page {
+      max-width: 1200px;
+      margin: 8rem auto 4rem;
+      padding: 0 2rem;
+    }
+
+    .transactions-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+
+    .transactions-header h1 {
+      font-size: 2.5rem;
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .transactions-controls {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .filter-select {
+      padding: 0.5rem;
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+    }
+
+    .transactions-list table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .transactions-list th,
+    .transactions-list td {
+      padding: 1rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .expense {
+      color: #ef4444;
+    }
+
+    .edit-btn, .delete-btn {
+      background: none;
+      border: none;
+      color: var(--text-light);
+      cursor: pointer;
+      margin-right: 0.5rem;
+    }
+
+    .edit-btn:hover {
+      color: var(--primary);
+    }
+
+    .delete-btn:hover {
+      color: #ef4444;
+    }
+  </style>
+</body>
+</html>

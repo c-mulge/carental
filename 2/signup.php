@@ -1,16 +1,81 @@
-
-<!-- login.html -->
+<!-- signup.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - BudgetFlow</title>
+    <title>Sign Up - BudgetFlow</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="style3.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
+<?php
+session_start();
+require_once('connection.php');
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Get form data
+    $name = trim($_POST['fname']);
+    $email = trim($_POST['email']);
+    $password = trim($_POST['pass']);
+    $confirm_password = trim($_POST['cpass']);
+
+    // Validation checks
+    if (empty($name) || empty($email) || empty($password) || empty($confirm_password)) {
+        echo '<script>alert("All fields are required!"); window.history.back();</script>';
+        exit();
+    }
+
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        echo '<script>alert("Invalid email format!"); window.history.back();</script>';
+        exit();
+    }
+
+    if ($password !== $confirm_password) {
+        echo '<script>alert("Passwords do not match!"); window.history.back();</script>';
+        exit();
+    }
+
+    // Check if email already exists
+    $check_email_query = "SELECT * FROM users WHERE email = ?";
+    $stmt = mysqli_prepare($conn, $check_email_query);
+    mysqli_stmt_bind_param($stmt, "s", $email);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_store_result($stmt);
+
+    if (mysqli_stmt_num_rows($stmt) > 0) {
+        echo '<script>alert("Email already registered!"); window.history.back();</script>';
+        exit();
+    }
+    mysqli_stmt_close($stmt);
+
+    // Encrypt the password
+    $hashed_password = password_hash($password, PASSWORD_DEFAULT); // More secure
+
+    // Insert user into database
+    $insert_query = "INSERT INTO users (name, email, password) VALUES (?, ?, ?)";
+    $stmt = mysqli_prepare($conn, $insert_query);
+    mysqli_stmt_bind_param($stmt, "sss", $name, $email, $hashed_password);
+
+    if (mysqli_stmt_execute($stmt)) {
+        // Store user session
+        $_SESSION['user_email'] = $email;
+        $_SESSION['user_name'] = $name;
+
+        // Redirect to dashboard
+        echo '<script>alert("Signup successful! Redirecting to Dashboard."); window.location.href = "dashboard.php";</script>';
+        exit();
+    } else {
+        echo '<script>alert("Signup failed. Please try again."); window.history.back();</script>';
+    }
+
+    mysqli_stmt_close($stmt);
+}
+
+mysqli_close($conn);
+?>
+
     <!-- Include the same header as index.html -->
     <header class="header">
         <nav class="navbar">
@@ -37,31 +102,38 @@
     <main class="auth-page">
         <div class="auth-container">
             <div class="auth-box">
-                <h1>Welcome Back</h1>
-                <p>Log in to your BudgetFlow account</p>
+                <h1>Create Your Account</h1>
+                <p>Start your journey to better financial management</p>
                 
-                <form class="auth-form">
+                <form class="auth-form" method="POST">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="fname" required>
+                    </div>
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" id="email" required>
+                        <input type="email" id="email" name="email" required>
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
-                        <input type="password" id="password" required>
+                        <input type="password" id="password" name="pass" required>
                     </div>
-                    <div class="form-actions">
-                        <label class="remember-me">
-                            <input type="checkbox">
-                            <span>Remember me</span>
+                    <div class="form-group">
+                        <label for="confirm-password">Confirm Password</label>
+                        <input type="password" id="confirm-password" name="cpass" required>
+                    </div>
+                    <div class="form-terms">
+                        <label>
+                            <input type="checkbox" required>
+                            <span>I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></span>
                         </label>
-                        <a href="#" class="forgot-password">Forgot password?</a>
                     </div>
-                    <button type="submit" class="auth-submit">Log In</button>
+                    <button type="submit" class="auth-submit">Create Account</button>
                 </form>
 
                 <div class="auth-alternate">
-                    <span>Don't have an account?</span>
-                    <a href="signup.html">Sign up</a>
+                    <span>Already have an account?</span>
+                    <a href="login.html">Log in</a>
                 </div>
             </div>
         </div>

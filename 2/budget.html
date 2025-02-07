@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BudgetFlow - Budgets</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <div class="gradient-bg">
+    <div class="gradient-animation"></div>
+  </div>
+
+  <header class="header">
+    <nav class="navbar">
+      <div class="logo">
+        <a class="logo-link" href="index.html">
+          Budget<span>Flow</span>
+        </a>
+      </div>
+      <div class="nav-menu">
+        <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+        <li><a href="transactions.html" class="nav-link">Transactions</a></li>
+        <li><a href="#" class="nav-link active">Budgets</a></li>
+        <li><a href="insights.html" class="nav-link">Insights</a></li>
+        <li><a href="profile.html" class="nav-link">Profile</a></li>
+        <li><a href="index.html" class="nav-link login-btn">Logout</a></li>
+      </div>
+    </nav>
+  </header>
+
+  <main class="budgets-page">
+    <section class="budgets-container">
+      <div class="budgets-header">
+        <h1>Budget Management</h1>
+        <button class="primary-btn">Create New Budget</button>
+      </div>
+
+      <div class="budget-cards">
+        <div class="budget-card">
+          <div class="budget-header">
+            <h3>Food & Dining</h3>
+            <span class="budget-amount">$500 / $800</span>
+          </div>
+          <div class="budget-progress">
+            <div class="progress-bar" style="width: 62%"></div>
+          </div>
+          <div class="budget-details">
+            <span>62% Used</span>
+            <span class="overspent">Overspent by $50</span>
+          </div>
+        </div>
+
+        <div class="budget-card">
+          <div class="budget-header">
+            <h3>Transportation</h3>
+            <span class="budget-amount">$200 / $250</span>
+          </div>
+          <div class="budget-progress">
+            <div class="progress-bar" style="width: 80%"></div>
+          </div>
+          <div class="budget-details">
+            <span>80% Used</span>
+            <span class="warning">Near Limit</span>
+          </div>
+        </div>
+
+        <div class="budget-card">
+          <div class="budget-header">
+            <h3>Entertainment</h3>
+            <span class="budget-amount">$150 / $300</span>
+          </div>
+          <div class="budget-progress">
+            <div class="progress-bar" style="width: 50%"></div>
+          </div>
+          <div class="budget-details">
+            <span>50% Used</span>
+            <span class="safe">On Track</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <div class="logo">Budget<span>Flow</span></div>
+        <p>Smart financial management for everyone.</p>
+      </div>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 BudgetFlow. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <style>
+    .budgets-page {
+      max-width: 1200px;
+      margin: 8rem auto 4rem;
+      padding: 0 2rem;
+    }
+
+    .budgets-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+
+    .budgets-header h1 {
+      font-size: 2.5rem;
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .budget-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .budget-card {
+      background: white;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .budget-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+    }
+
+    .budget-progress {
+      background: var(--background-alt);
+      height: 10px;
+      border-radius: 5px;
+      margin-bottom: 0.5rem;
+    }
+
+    .progress-bar {
+      height: 100%;
+      background: var(--primary);
+      border-radius: 5px;
+    }
+
+    .budget-details {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.875rem;
+    }
+
+    .overspent {
+      color: #ef4444;
+    }
+
+    .warning {
+      color: #f59e0b;
+    }
+
+    .safe {
+      color: var(--success);
+    }
+  </style>
+</body>
+</html>
