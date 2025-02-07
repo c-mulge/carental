@@ -1,0 +1,272 @@
+/* Additional styles for contact, signup and login pages */
+
+/* Common Auth Page Styles */
+.auth-page {
+    min-height: calc(100vh - 70px);
+    padding: 6rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--background-alt);
+  }
+  
+  .auth-container {
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+  
+  .auth-box {
+    background: white;
+    padding: 3rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .auth-box h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .auth-box p {
+    color: var(--text-light);
+    margin-bottom: 2rem;
+  }
+  
+  .auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .form-group label {
+    font-weight: 500;
+    color: var(--text);
+  }
+  
+  .form-group input {
+    padding: 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+  }
+  
+  .form-group input:focus {
+    outline: none;
+    border-color: var(--primary);
+  }
+  
+  .auth-submit {
+    background: var(--primary);
+    color: white;
+    padding: 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .auth-submit:hover {
+    background: var(--primary-dark);
+  }
+  
+  .auth-alternate {
+    margin-top: 2rem;
+    text-align: center;
+    color: var(--text-light);
+  }
+  
+  .auth-alternate a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 0.5rem;
+  }
+  
+  /* Login Page Specific Styles */
+  .form-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  .remember-me {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-light);
+  }
+  
+  .forgot-password {
+    color: var(--primary);
+    text-decoration: none;
+    font-size: 0.875rem;
+  }
+  
+  /* Sign Up Page Specific Styles */
+  .form-terms {
+    margin: 1rem 0;
+    color: var(--text-light);
+    font-size: 0.875rem;
+  }
+  
+  .form-terms label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .form-terms a {
+    color: var(--primary);
+    text-decoration: none;
+  }
+  
+  /* Contact Page Styles */
+  .contact-page {
+    padding-top: 70px;
+  }
+  
+  .contact-hero {
+    background: var(--background-alt);
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+  
+  .contact-hero h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .contact-hero p {
+    color: var(--text-light);
+    font-size: 1.25rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .contact-content {
+    padding: 4rem 2rem;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 4rem;
+  }
+  
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .contact-method {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .contact-method i {
+    font-size: 1.5rem;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+  }
+  
+  .contact-method h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text);
+  }
+  
+  .contact-method p {
+    color: var(--text-light);
+  }
+  
+  .contact-form {
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .contact-form textarea {
+    resize: vertical;
+    min-height: 120px;
+    padding: 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+    font-family: inherit;
+    font-size: 1rem;
+  }
+  
+  .contact-form textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+  }
+  
+  .submit-btn {
+    width: 100%;
+    padding: 1rem;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .submit-btn:hover {
+    background: var(--primary-dark);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .contact-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    
+    .auth-box {
+      padding: 2rem;
+    }
+    
+    .contact-info {
+      text-align: center;
+    }
+    
+    .contact-method {
+      align-items: center;
+    }
+    
+    .form-actions {
+      flex-direction: column;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+  }

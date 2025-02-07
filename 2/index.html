@@ -1,0 +1,214 @@
+<!-- Main page -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BudgetFlow - Smart Financial Management</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <div class="gradient-bg">
+    <div class="gradient-animation"></div>
+  </div>
+
+  <header class="header">
+    <nav class="navbar">
+      <div class="logo">
+        <a class="logo-link" href="index.html">
+          Budget<span>Flow</span>
+        </a>
+      </div>
+      <div class="nav-toggle" id="navToggle">
+        <span></span><span></span><span></span>
+      </div>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="features.html" class="nav-link">Features</a></li>
+        <li><a href="pricing.html" class="nav-link">Pricing</a></li>
+        <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+        <li><a href="login.html" class="nav-link login-btn">Login</a></li>
+        <li><a href="signup.html" class="nav-link signup-btn">Get Started</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <h1 class="animated-text">Smart Money Management for Modern Life</h1>
+        <p class="hero-description">Take control of your finances with AI-powered insights, real-time tracking, and personalized recommendations.</p>
+        <div class="hero-cta">
+          <a href="#signup" class="primary-btn">Start Free Trial <i class="fas fa-arrow-right"></i></a>
+          <a href="#demo" class="secondary-btn">Watch Demo <i class="fas fa-play"></i></a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-number">50K+</span>
+            <span class="stat-label">Active Users</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">4.9</span>
+            <span class="stat-label">App Rating</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">$2M+</span>
+            <span class="stat-label">Saved by Users</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="https://placehold.co/600x400/6366f1/white" alt="Dashboard Preview" class="dashboard-preview">
+        <div class="floating-card card-1">
+          <i class="fas fa-chart-line"></i>
+          <span>Spending Analysis</span>
+        </div>
+        <div class="floating-card card-2">
+          <i class="fas fa-piggy-bank"></i>
+          <span>Save $324 this month</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="features">
+      <h2>Why Choose BudgetFlow</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-robot"></i>
+          </div>
+          <h3>AI-Powered Insights</h3>
+          <p>Get personalized recommendations and spending insights powered by advanced AI algorithms.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-clock"></i>
+          </div>
+          <h3>Real-time Tracking</h3>
+          <p>Monitor your expenses and income in real-time with automatic categorization.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-lock"></i>
+          </div>
+          <h3>Bank-level Security</h3>
+          <p>Your data is protected with enterprise-grade encryption and security measures.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-mobile-alt"></i>
+          </div>
+          <h3>Cross-platform Sync</h3>
+          <p>Access your finances from any device with seamless synchronization.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonials" class="testimonials">
+      <h2>What Our Users Say</h2>
+      <div class="testimonial-slider" id="testimonialSlider">
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <p>"BudgetFlow helped me save for my dream house in just 18 months. The AI insights were game-changing!"</p>
+            <div class="testimonial-author">
+              <img src="/api/placeholder/50/50" alt="Sarah M." class="author-image">
+              <div class="author-info">
+                <h4>Sarah M.</h4>
+                <span>Product Designer</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Add more testimonial cards as needed -->
+      </div>
+    </section>
+
+    <section id="pricing" class="pricing">
+      <h2>Simple, Transparent Pricing</h2>
+      <div class="pricing-grid">
+        <div class="price-card">
+          <div class="price-header">
+            <h3>Free</h3>
+            <div class="price">$0<span>/month</span></div>
+          </div>
+          <ul class="price-features">
+            <li><i class="fas fa-check"></i> Basic Expense Tracking</li>
+            <li><i class="fas fa-check"></i> Monthly Reports</li>
+            <li><i class="fas fa-check"></i> Up to 2 Accounts</li>
+          </ul>
+          <a href="#signup" class="price-cta">Get Started</a>
+        </div>
+        <div class="price-card featured">
+          <div class="price-header">
+            <h3>Pro</h3>
+            <div class="price">$9.99<span>/month</span></div>
+          </div>
+          <ul class="price-features">
+            <li><i class="fas fa-check"></i> Advanced Analytics</li>
+            <li><i class="fas fa-check"></i> AI Insights</li>
+            <li><i class="fas fa-check"></i> Unlimited Accounts</li>
+            <li><i class="fas fa-check"></i> Priority Support</li>
+          </ul>
+          <a href="#signup" class="price-cta">Start Free Trial</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <div class="logo">Budget<span>Flow</span></div>
+        <p>Smart financial management for everyone.</p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-section">
+          <h4>Product</h4>
+          <ul>
+            <li><a href="#">Features</a></li>
+            <li><a href="#">Pricing</a></li>
+            <li><a href="#">Integrations</a></li>
+            <li><a href="#">Updates</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">API Docs</a></li>
+            <li><a href="#">Community</a></li>
+            <li><a href="#">Status</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 BudgetFlow. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Cookie Policy</a>
+      </div>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

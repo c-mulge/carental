@@ -44,7 +44,6 @@
 </head>
 
 <body>
-
     <?php
     require_once('connection.php');
 
@@ -85,6 +84,7 @@
         }
     }
     ?>
+    
 
     <div class="main">
         <div class="register">

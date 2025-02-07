@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing - BudgetFlow</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style4.css">
+    <link rel="stylesheet" href="pricing.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+          <div class="logo">
+            <a class="logo-link" href="index.html">
+                Budget<span>Flow</span>
+              </a>
+          </div>
+          <div class="nav-toggle" id="navToggle">
+            <span></span><span></span><span></span>
+          </div>
+          <ul class="nav-menu" id="navMenu">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="features.html" class="nav-link">Features</a></li>
+            <li><a href="pricing.html" class="nav-link">Pricing</a></li>
+            <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+            <li><a href="login.html" class="nav-link login-btn">Login</a></li>
+            <li><a href="signup.html" class="nav-link signup-btn">Get Started</a></li>
+          </ul>
+        </nav>
+      </header>
+    
+    <main class="pricing-page">
+        <section class="pricing-hero">
+            <h1>Simple, Transparent Pricing</h1>
+            <p>Choose the perfect plan for your financial journey</p>
+            
+            <div class="pricing-toggle">
+                <span class="toggle-text">Monthly</span>
+                <label class="switch">
+                    <input type="checkbox" id="billingToggle">
+                    <span class="slider round"></span>
+                </label>
+                <span class="toggle-text">Annual</span>
+                <span class="saving-badge">Save 20%</span>
+            </div>
+        </section>
+
+        <section class="pricing-grid">
+            <div class="price-card" data-plan="free">
+                <div class="price-header">
+                    <h3>Free</h3>
+                    <div class="price">
+                        <span class="monthly-price">$0</span>
+                        <span class="annual-price">$0</span>
+                        <span class="period">/month</span>
+                    </div>
+                    <p>Perfect for getting started</p>
+                </div>
+                <ul class="price-features">
+                    <li><i class="fas fa-check"></i> Basic Expense Tracking</li>
+                    <li><i class="fas fa-check"></i> Monthly Reports</li>
+                    <li><i class="fas fa-check"></i> Up to 2 Accounts</li>
+                    <li class="disabled"><i class="fas fa-times"></i> AI Insights</li>
+                    <li class="disabled"><i class="fas fa-times"></i> Priority Support</li>
+                </ul>
+                <button class="price-cta" data-plan="free">Get Started</button>
+            </div>
+
+            <div class="price-card featured" data-plan="pro">
+                <div class="popular-badge">Most Popular</div>
+                <div class="price-header">
+                    <h3>Pro</h3>
+                    <div class="price">
+                        <span class="monthly-price">$9.99</span>
+                        <span class="annual-price">$7.99</span>
+                        <span class="period">/month</span>
+                    </div>
+                    <p>For serious money managers</p>
+                </div>
+                <ul class="price-features">
+                    <li><i class="fas fa-check"></i> Everything in Free</li>
+                    <li><i class="fas fa-check"></i> Unlimited Accounts</li>
+                    <li><i class="fas fa-check"></i> AI-Powered Insights</li>
+                    <li><i class="fas fa-check"></i> Priority Support</li>
+                    <li><i class="fas fa-check"></i> Custom Categories</li>
+                </ul>
+                <button class="price-cta featured" data-plan="pro">Start Free Trial</button>
+            </div>
+
+            <div class="price-card" data-plan="enterprise">
+                <div class="price-header">
+                    <h3>Enterprise</h3>
+                    <div class="price">
+                        <span class="monthly-price">$24.99</span>
+                        <span class="annual-price">$19.99</span>
+                        <span class="period">/month</span>
+                    </div>
+                    <p>For teams and businesses</p>
+                </div>
+                <ul class="price-features">
+                    <li><i class="fas fa-check"></i> Everything in Pro</li>
+                    <li><i class="fas fa-check"></i> Team Collaboration</li>
+                    <li><i class="fas fa-check"></i> Advanced Analytics</li>
+                    <li><i class="fas fa-check"></i> API Access</li>
+                    <li><i class="fas fa-check"></i> Dedicated Support</li>
+                </ul>
+                <button class="price-cta" data-plan="enterprise">Contact Sales</button>
+            </div>
+        </section>
+
+        <section class="pricing-faq">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Can I change plans later?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Yes, you can upgrade, downgrade, or cancel your plan at any time. Changes take effect at the start of the next billing cycle.
+                    </div>
+                </div>
+                <!-- Add more FAQ items -->
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <div class="logo">Budget<span>Flow</span></div>
+            <p>Smart financial management for everyone.</p>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-linkedin"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+          <div class="footer-links">
+            <div class="footer-section">
+              <h4>Product</h4>
+              <ul>
+                <li><a href="#">Features</a></li>
+                <li><a href="#">Pricing</a></li>
+                <li><a href="#">Integrations</a></li>
+                <li><a href="#">Updates</a></li>
+              </ul>
+            </div>
+            <div class="footer-section">
+              <h4>Company</h4>
+              <ul>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">Contact</a></li>
+              </ul>
+            </div>
+            <div class="footer-section">
+              <h4>Resources</h4>
+              <ul>
+                <li><a href="#">Help Center</a></li>
+                <li><a href="#">API Docs</a></li>
+                <li><a href="#">Community</a></li>
+                <li><a href="#">Status</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2024 BudgetFlow. All rights reserved.</p>
+          <div class="footer-legal">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Cookie Policy</a>
+          </div>
+        </div>
+      </footer>
+    <script src="pricing.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
