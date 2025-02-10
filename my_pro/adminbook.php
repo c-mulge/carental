@@ -1,4 +1,4 @@
-<?php include('authentication.php') ?>
+<?php include('authentication.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,29 +46,38 @@
                             <th>Destination</th>
                             <th>Return Date</th>
                             <th>Booking Status</th>
-                            <th>Approve</th>
-                            <th>Car Returned</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
                         while ($res = mysqli_fetch_array($queryy)) {
+                            $book_id = $res['BOOK_ID'];
+                            $email = $res['EMAIL'];
+                            $status = $res['BOOK_STATUS'];
                         ?>
                             <tr>
                                 <td><?php echo $res['CAR_ID']; ?></td>
-                                <td><?php echo $res['EMAIL']; ?></td>
+                                <td><?php echo $email; ?></td>
                                 <td><?php echo $res['BOOK_PLACE']; ?></td>
                                 <td><?php echo $res['BOOK_DATE']; ?></td>
                                 <td><?php echo $res['DURATION']; ?></td>
                                 <td><?php echo $res['PHONE_NUMBER']; ?></td>
                                 <td><?php echo $res['DESTINATION']; ?></td>
                                 <td><?php echo $res['RETURN_DATE']; ?></td>
-                                <td><?php echo $res['BOOK_STATUS']; ?></td>
+                                <td><?php echo $status; ?></td>
                                 <td>
-                                    <button class="approve-btn"><a href="approve.php?id=<?php echo $res['BOOK_ID']; ?>">Approve</a></button>
-                                </td>
-                                <td>
-                                    <button class="return-btn"><a href="adminreturn.php?id=<?php echo $res['CAR_ID']; ?>&bookid=<?php echo $res['BOOK_ID']; ?>">Returned</a></button>
+                                    <?php if ($status == 'Pending') { ?>
+                                        <button class="approve-btn">
+                                            <a href="approve.php?id=<?php echo $book_id; ?>&email=<?php echo $email; ?>">Approve</a>
+                                        </button>
+                                    <?php } elseif ($status == 'Approved') { ?>
+                                        <button class="return-btn">
+                                            <a href="adminreturn.php?id=<?php echo $res['CAR_ID']; ?>&bookid=<?php echo $book_id; ?>">Returned</a>
+                                        </button>
+                                    <?php } else { ?>
+                                        <button class="returned-btn" disabled>Returned</button>
+                                    <?php } ?>
                                 </td>
                             </tr>
                         <?php } ?>
@@ -78,5 +87,4 @@
         </main>
     </div>
 </body>
-
 </html>
