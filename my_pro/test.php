@@ -14,7 +14,7 @@ function smtp_mailer($to,$subject, $msg){
 	//$mail->SMTPDebug = 2; 
 	$mail->Username = "mulgechannveer@gmail.com";
 	$mail->Password = "qdowinlpaoqjdhvz";
-	$mail->SetFrom("mulgechannveer2gmail.com");
+	$mail->SetFrom("mulgechannveer@gmail.com");
 	$mail->Subject = $subject;
 	$mail->Body =$msg;
 	$mail->AddAddress($to);
