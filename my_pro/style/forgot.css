@@ -1,0 +1,194 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    padding: 20px;
+}
+
+/* Container Styles */
+.forgot-password-container {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 10px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 420px;
+    text-align: center;
+}
+
+/* Header Styles */
+h2 {
+    color: #1a1a1a;
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: #4a90e2;
+    border-radius: 3px;
+}
+
+/* Form Styles */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-top: 1.5rem;
+}
+
+label {
+    color: #4a5568;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-align: left;
+    margin-bottom: 0.25rem;
+    display: block;
+}
+
+input[type="email"] {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 6px;
+    font-size: 1rem;
+    color: #2d3748;
+    transition: border-color 0.2s ease;
+    outline: none;
+}
+
+input[type="email"]:focus {
+    border-color: #4a90e2;
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+}
+
+input[type="email"]::placeholder {
+    color: #a0aec0;
+}
+
+/* Button Styles */
+button[type="submit"] {
+    background: #4a90e2;
+    color: white;
+    border: none;
+    padding: 0.875rem 1.5rem;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    width: 100%;
+    margin-top: 0.5rem;
+}
+
+button[type="submit"]:hover {
+    background: #357abd;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(74, 144, 226, 0.2);
+}
+
+button[type="submit"]:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+/* Back to Login Link */
+.back-to-login {
+    margin-top: 1.5rem;
+    text-align: center;
+}
+
+.back-to-login a {
+    color: #4a90e2;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.back-to-login a:hover {
+    color: #357abd;
+    text-decoration: underline;
+}
+
+/* Loading State */
+button[type="submit"].loading {
+    background: #357abd;
+    cursor: not-allowed;
+    opacity: 0.8;
+}
+
+/* Success Message */
+.success-message {
+    color: #2f855a;
+    background: #c6f6d5;
+    padding: 1rem;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+    display: none;
+}
+
+/* Error Message */
+.error-message {
+    color: #c53030;
+    background: #fed7d7;
+    padding: 1rem;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+    display: none;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 480px) {
+    .forgot-password-container {
+        padding: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    input[type="email"],
+    button[type="submit"] {
+        padding: 0.75rem 1rem;
+    }
+}
+
+/* Animation Keyframes */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Apply animations */
+.forgot-password-container {
+    animation: fadeIn 0.5s ease-out;
+}

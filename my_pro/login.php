@@ -51,6 +51,12 @@
             <form method="POST">
                 <input type="email" name="email" placeholder="Enter Email" required>
                 <input type="password" name="pass" placeholder="Enter Password" required>
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+            <p>
+                <a href="forgot_password.php" class="forgot-password">Forgot Password?</a>
+            </p>
+
+            </div>
                 <input class="btnn" type="submit" value="Login" name="login">
             </form>
             <p class="link">Don't have an account?<br>

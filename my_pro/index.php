@@ -25,7 +25,7 @@
 
 <body>
     <div class="container">
-        <header class="bg-900 flex items-center justify-between py-4 px-8 hhh" >
+        <header class="bg-900 flex items-center justify-between py-4 px-6 hhh" >
          <div class="container mx-auto flex justify-between items-center">
          <div class="logo text-2xl font-bold">CaRental</div>
             <nav class="menu space-x-6">

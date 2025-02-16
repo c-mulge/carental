@@ -54,9 +54,10 @@ if (isset($_POST['adlog'])) {
             <input type="text" name="adid" class="input-style" placeholder="Enter User ID" required>
             <input type="password" name="adpass" class="input-style" placeholder="Password" required>
             <div style="display: flex; justify-content: space-between; align-items: center;">
-                <p>
-                    <a href="#" class="forgot-password">Forgot Password?</a>
-                </p>
+            <p>
+                <a href="forgot_password.php" class="forgot-password">Forgot Password?</a>
+            </p>
+
             </div>
             <input type="submit" name="adlog" class="btnn" value="LOGIN">
         </form>
