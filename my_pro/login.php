@@ -13,6 +13,19 @@
         window.onunload = function () { null };
     </script>
     <link rel="stylesheet" href="style/login.css">
+    <style>
+        .forgot-password {
+    font-size: 14px;
+    color: #3b82f6;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.forgot-password:hover {
+    color: #2563eb;
+    text-decoration: underline;
+}
+    </style>
 </head>
 
 <body>

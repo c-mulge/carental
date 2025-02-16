@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3307
--- Generation Time: Dec 13, 2024 at 05:37 PM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Generation Time: Feb 16, 2025 at 05:30 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -39,9 +39,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`ADMIN_ID`, `ADMIN_NAME`, `ADMIN_EMAIL`, `ADMIN_PASSWORD`) VALUES
-('12345', 'Atul Shetty', 'atul123@xyz.com', '$2y$10$E839N1mYhlI3SYtKRc/fueaRgxuHLhbWk3Y.SW57YZh8X4Z1cFjJC'),
-('ADMIN', 'ADMIN', 'ADMIN', 'ADMIN'),
-('CMULGE', 'Channveer Mulge', 'mulgechannveer@gmail.com', '$2y$10$5IRQgj7UrBp6jaoBpprbOukyA1G2Yf1WGFJ4aoYO3r3EOicYBCwk.');
+('ADMIN123', 'Channveer Mulge', 'mulgechannveer@gmail.com', '$2y$10$vOHLFutr7aLFqQH3GMH7teeSrTORgbstRdMf4XHcoEUUynNQjDYG6');
 
 -- --------------------------------------------------------
 
@@ -71,7 +69,8 @@ INSERT INTO `booking` (`BOOK_ID`, `CAR_ID`, `EMAIL`, `BOOK_PLACE`, `BOOK_DATE`, 
 (86, 25, 'soham.personal02@gmail.com', 'Pune', '2024-12-01', 3, 9090909090, 'Satara', '2024-12-04', 6000, 'RETURNED'),
 (87, 26, 'soham.personal02@gmail.com', 'Mumbai', '2024-12-05', 4, 7878787878, 'Kolkata', '2024-12-08', 6000, 'RETURNED'),
 (90, 26, 'embomber.2022@gmail.com', 'Mumbai', '2024-12-05', 2, 7020841171, 'Banglore', '2024-12-06', 3000, 'RETURNED'),
-(91, 26, 'soham.personal02@gmail.com', '', '0000-00-00', 0, 0, '', '0000-00-00', 0, 'UNDER PROCESSING');
+(91, 26, 'soham.personal02@gmail.com', '', '0000-00-00', 0, 0, '', '0000-00-00', 0, 'Rejected'),
+(92, 24, 'mulgechannveer@gmail.com', 'Pune', '2025-02-11', 3, 7020841171, 'Mumbai', '2025-02-13', 7500, 'RETURNED');
 
 -- --------------------------------------------------------
 
@@ -86,20 +85,22 @@ CREATE TABLE `cars` (
   `CAPACITY` int(11) NOT NULL,
   `PRICE` int(11) NOT NULL,
   `CAR_IMG` varchar(255) NOT NULL,
-  `AVAILABLE` varchar(255) NOT NULL
+  `AVAILABLE` varchar(255) NOT NULL,
+  `CAR_TYPE` enum('Large','Small','Premium') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `cars`
 --
 
-INSERT INTO `cars` (`CAR_ID`, `CAR_NAME`, `FUEL_TYPE`, `CAPACITY`, `PRICE`, `CAR_IMG`, `AVAILABLE`) VALUES
-(1, 'FERRAI', 'PETROL', 5, 5000, 'ferrari.jpg', 'Y'),
-(2, 'LAMBORGINI', 'DEISEL', 6, 7000, 'lamborghini.webp', 'Y'),
-(23, 'PORSCHE', 'Petrol', 4, 10000, 'IMG-672f639c26d598.30628388.jpg', 'Y'),
-(24, 'BMW', 'Disel', 5, 7500, 'IMG-672f65396d2667.34254433.jpg', 'Y'),
-(25, 'Suzuki Swift', 'Petrol', 5, 2000, 'IMG-672f6563a5cd41.62835718.jpg', 'Y'),
-(26, 'Suzuki Ciaz', 'Petrol', 5, 1500, 'IMG-672f65868c6078.65393954.jpg', 'Y');
+INSERT INTO `cars` (`CAR_ID`, `CAR_NAME`, `FUEL_TYPE`, `CAPACITY`, `PRICE`, `CAR_IMG`, `AVAILABLE`, `CAR_TYPE`) VALUES
+(1, 'FERRAI', 'PETROL', 5, 5000, 'ferrari.jpg', 'Y', 'Large'),
+(2, 'LAMBORGINI', 'DEISEL', 6, 7000, 'lamborghini.webp', 'Y', 'Large'),
+(23, 'PORSCHE', 'Petrol', 4, 10000, 'IMG-672f639c26d598.30628388.jpg', 'Y', 'Large'),
+(24, 'BMW', 'Disel', 5, 7500, 'IMG-672f65396d2667.34254433.jpg', 'Y', 'Large'),
+(25, 'Suzuki Swift', 'Petrol', 5, 2000, 'IMG-672f6563a5cd41.62835718.jpg', 'Y', 'Large'),
+(26, 'Suzuki Ciaz', 'Petrol', 5, 1500, 'IMG-672f65868c6078.65393954.jpg', 'Y', 'Large'),
+(28, 'BMW 720', 'Petrol', 4, 4000, 'IMG-67b20e26493261.17516385.jpg', 'Y', 'Premium');
 
 -- --------------------------------------------------------
 
@@ -142,7 +143,8 @@ CREATE TABLE `payment` (
 INSERT INTO `payment` (`PAY_ID`, `BOOK_ID`, `CARD_NO`, `EXP_DATE`, `CVV`, `PRICE`) VALUES
 (27, 86, '1234567898765432', '12/26', 123, 6000),
 (28, 87, '1234567898765432', '12/25', 456, 6000),
-(31, 90, '9876543212345678', '04/27', 456, 3000);
+(31, 90, '9876543212345678', '04/27', 456, 3000),
+(32, 92, '', '', 0, 22500);
 
 -- --------------------------------------------------------
 
@@ -166,6 +168,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`FNAME`, `LNAME`, `EMAIL`, `LIC_NUM`, `PHONE_NUMBER`, `PASSWORD`, `GENDER`) VALUES
 ('Siddhesh', 'Sapkale', 'embomber.2022@gmail.com', 'MH12FZ9693', 9090909090, '024d9fd79fdeaab91edae1f93df8e2b4', 'male'),
+('Channveer', 'Mulge', 'mulgechannveer@gmail.com', 'MH14FZ9695', 7020841171, 'c98c99f5d9050b089e2b8620cef46cae', 'male'),
 ('Soham', 'Shirke', 'soham.personal02@gmail.com', 'MH12JK1234', 123456789, '49028f5661ec7ccda21928d265fef961', 'male');
 
 --
@@ -221,13 +224,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `booking`
 --
 ALTER TABLE `booking`
-  MODIFY `BOOK_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
+  MODIFY `BOOK_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
 
 --
 -- AUTO_INCREMENT for table `cars`
 --
 ALTER TABLE `cars`
-  MODIFY `CAR_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `CAR_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `feedback`
@@ -239,7 +242,7 @@ ALTER TABLE `feedback`
 -- AUTO_INCREMENT for table `payment`
 --
 ALTER TABLE `payment`
-  MODIFY `PAY_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `PAY_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- Constraints for dumped tables

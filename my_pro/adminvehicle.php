@@ -55,6 +55,7 @@
                 <tr>
                     <th>Serial No.</th>
                     <th>Car Name</th>
+                    <th>Car Type</th>
                     <th>Fuel Type</th>
                     <th>Capacity</th>
                     <th>Price</th>
@@ -70,6 +71,7 @@
                         <!-- <?php echo $serial++; ?> -->
                         <td><?php echo $res['CAR_ID']; ?></td>
                         <td><?php echo $res['CAR_NAME']; ?></td>
+                        <td><?php echo $res['CAR_TYPE']; ?></td>
                         <td><?php echo $res['FUEL_TYPE']; ?></td>
                         <td><?php echo $res['CAPACITY']; ?></td>
                         <td><?php echo $res['PRICE']; ?></td>
