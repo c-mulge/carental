@@ -67,7 +67,7 @@
                                 <td><?php echo $res['RETURN_DATE']; ?></td>
                                 <td><?php echo $status; ?></td>
                                 <td>
-                                    <?php if ($status == 'Pending') { ?>
+                                    <?php if ($status == 'UNDER PROCESSING') { ?>
                                         <button class="approve-btn">
                                             <a href="approve.php?id=<?php echo $book_id; ?>&email=<?php echo $email; ?>">Approve</a>
                                         </button>
