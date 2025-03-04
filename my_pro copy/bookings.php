@@ -1,4 +1,15 @@
 <?php include('user_auth.php'); ?>
+<?php 
+    require_once('connection.php');
+    
+    $value = $_SESSION['email'];
+    $_SESSION['email'] = $value;
+    
+    // Fetch user details
+    $sql = "SELECT * FROM users WHERE EMAIL='$value'";
+    $name = mysqli_query($con, $sql);
+    $rows = mysqli_fetch_assoc($name);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -433,10 +444,8 @@
             <li><a href="logout.php">Logout</a></li>
         </ul>
         <div class="user-profile">
-            <i data-feather="user"></i>
-            <a href="profile.php" class="phello">
-                <?php echo isset($_SESSION['name']) ? htmlspecialchars($_SESSION['name']) : 'Guest'; ?>
-            </a>
+            <i class="ri-user-line"></i>
+            <span><a class="phello" href="profile.php"><?php echo $rows['FNAME'] . " " . $rows['LNAME']; ?></a></span>
         </div>
     </nav>
 

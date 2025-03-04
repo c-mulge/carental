@@ -64,7 +64,7 @@
 
         if (mysqli_num_rows($emailResult) > 0) {
            
-            echo '<script>alert("Registration successful! Please login.")</script>';
+            echo '<script>alert("Email already exists! Please login.")</script>';
             echo '<script>window.location.href = "index.php";</script>';
         } else {
 
@@ -73,7 +73,7 @@
                     VALUES ('$fname', '$lname', '$email', '$lic', '$ph', '$Pass', '$gender')";
 
                 if (mysqli_query($con, $sql)) {
-                    echo '<script>alert("Email already exists! Please login.")</script>';
+                    echo '<script>alert("Registration successful! Please login.")</script>';
                     echo '<script>window.location.href = "index.php";</script>';
                 } else {
                     echo '<script>alert("Error: Unable to register. Please try again.")</script>';

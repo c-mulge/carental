@@ -84,25 +84,25 @@
           <div class="bg-white p-6 rounded-md shadow-md car-listing hover:shadow-lg transition">
             <img src="images/carbg5.jpg" alt="All New Rush" class="mb-4">
             <h3 class="text-xl font-bold mb-2">All New Rush</h3>
-            <p class="text-gray-600 font-medium mb-4">$72.00/day</p>
+            <p class="text-gray-600 font-medium mb-4">$3500/day</p>
             <button class="more-details bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-md">More Details</button>
           </div>
           <div class="bg-white p-6 rounded-md shadow-md">
-            <img src="images/carbg2.jpg" alt="Large Car" class="mb-4">
+            <img src="images/fortuner.jpg" alt="Large Car" class="mb-4">
             <h3 class="text-xl font-bold mb-2">Large Car</h3>
-            <p class="text-gray-600 font-medium mb-4">$75.00/day</p>
+            <p class="text-gray-600 font-medium mb-4">$4500/day</p>
             <a href="cardetails.php" class="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-md">Rent Now</a>
           </div>
           <div class="bg-white p-6 rounded-md shadow-md">
             <img src="images/ciaz.jpg" alt="Small Car" class="mb-4">
             <h3 class="text-xl font-bold mb-2">Small Car</h3>
-            <p class="text-gray-600 font-medium mb-4">$57.00/day</p>
+            <p class="text-gray-600 font-medium mb-4">$2000/day</p>
             <a href="cardetails.php" class="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-md">Rent Now</a>
           </div>
           <div class="bg-white p-6 rounded-md shadow-md car-listing hover:shadow-lg transition">
             <img src="images/ferrari.jpg" alt="Premium Cars" class="mb-4">
             <h3 class="text-xl font-bold mb-2">Premium Cars</h3>
-            <p class="text-gray-600 font-medium mb-4">$80.00/day</p>
+            <p class="text-gray-600 font-medium mb-4">$8000/day</p>
             <button class="more-details bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-md">More Details</button>
           </div>
 
@@ -193,8 +193,8 @@
         <div class="mt-8 border-t border-gray-700 pt-4 text-center">
             <ul class="flex justify-center space-x-6 text-sm">
                 <li><a href="privacy.html" class="hover:text-gray-300 transition">Privacy Policy</a></li>
-                <li><a href="#" class="hover:text-gray-300 transition">Terms of Service</a></li>
-                <li><a href="#" class="hover:text-gray-300 transition">Cookie Policy</a></li>
+                <li><a href="tos.html" class="hover:text-gray-300 transition">Terms of Service</a></li>
+                <li><a href="tos.html" class="hover:text-gray-300 transition">Cookie Policy</a></li>
             </ul>
         </div>
     </div>

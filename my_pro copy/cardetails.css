@@ -243,22 +243,6 @@ body {
     transform: translateY(-3px);
 }
 
-/* Availability Badge */
-/* .car-card::before {
-    content: "Available";
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background: var(--success);
-    color: white;
-    padding: 0.3rem 0.8rem;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    z-index: 10;
-    box-shadow: 0 3px 8px rgba(56, 176, 0, 0.3);
-} */
-
 /* Add Car Type Badge */
 .car-details::before {
     position: absolute;

@@ -260,7 +260,7 @@ if (isset($_POST['adlog'])) {
                 <input class="btnn" type="submit" value="Login" name="adlog">
             </form>
             <p class="link">Don't have an account?<br>
-                <a href="register.php">Sign up</a> here
+                <a href="adreg.php">Sign up</a> here
             </p>
         </div>
     </div>

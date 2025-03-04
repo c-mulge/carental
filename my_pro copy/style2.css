@@ -127,7 +127,7 @@ header {
 /* Hero Section with Animated Background */
 .content {
     min-height: 100vh;
-    background: linear-gradient(135deg, rgba(58, 12, 163, 0.9), rgba(67, 97, 238, 0.8)), url('images/carbg5.jpg');
+    background: linear-gradient(135deg, rgba(58, 12, 163, 0.9), rgba(67, 97, 238, 0.8)), url('images/bmwbg.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
