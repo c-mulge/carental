@@ -3,9 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CodeShare Dashboard</title>
+    <title>CodeHub Dashboard</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/dashboard.css">
+    <style>
+        a {
+    text-decoration: none;
+    color: var(--light-color);
+    transition: var(--transition);
+}
+    </style>
+    
 </head>
 <body>
     <div class="dashboard">
@@ -14,7 +22,7 @@
             <div class="sidebar-header">
                 <div class="logo">
                     <i class="fas fa-code-branch"></i>
-                    <span>CodeShare</span>
+                    <span>CodeHub</span>
                 </div>
             </div>
             <div class="sidebar-menu">
@@ -25,7 +33,7 @@
                 </div>
                 <div class="menu-item">
                     <i class="fas fa-code"></i>
-                    <span>My Repositories</span>
+                    <a href="myrepo.php"><span>My Repositories</span></a>
                 </div>
                 <div class="menu-item">
                     <i class="fas fa-star"></i>
