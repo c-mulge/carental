@@ -101,24 +101,5 @@
             </form>
         </div>
     </section>
-
-    <script>
-        // Plan selection
-        const planOptions = document.querySelectorAll('.plan-option');
-        const planInput = document.getElementById('plan');
-        
-        planOptions.forEach(option => {
-            option.addEventListener('click', function() {
-                // Remove selected class from all options
-                planOptions.forEach(opt => opt.classList.remove('selected'));
-                
-                // Add selected class to clicked option
-                this.classList.add('selected');
-                
-                // Update hidden input value
-                planInput.value = this.getAttribute('data-plan');
-            });
-        });
-    </script>
 </body>
 </html>
