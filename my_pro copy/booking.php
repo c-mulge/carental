@@ -373,7 +373,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <input type="date" name="return_date" required>
             </div>
 
-            <input type="hidden" name="price" value="<?php echo isset($_POST['duration']) ? $car['PRICE'] * $_POST['duration'] : $car['PRICE']; ?>">
+            <input type="hidden" name="price" value="<?php echo isset($_POST['duration']) ? $car['PRICE'] : $car['PRICE']; ?>">
 
             <?php if (isset($error)) { ?>
                 <p class="error-message"><i class="fas fa-exclamation-circle"></i> <?php echo $error; ?></p>
