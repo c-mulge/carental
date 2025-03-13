@@ -94,7 +94,7 @@
             <a href="cardetails.php" class="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-md">Rent Now</a>
           </div>
           <div class="bg-white p-6 rounded-md shadow-md">
-            <img src="images/ciaz.jpg" alt="Small Car" class="mb-4">
+            <img src="images/i10.jpg" alt="Small Car" class="mb-4">
             <h3 class="text-xl font-bold mb-2">Small Car</h3>
             <p class="text-gray-600 font-medium mb-4">$2000/day</p>
             <a href="cardetails.php" class="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-md">Rent Now</a>
