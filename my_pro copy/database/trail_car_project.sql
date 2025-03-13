@@ -1,0 +1,282 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Mar 13, 2025 at 05:00 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.1.25
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `trail_car_project`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin`
+--
+
+CREATE TABLE `admin` (
+  `ADMIN_ID` varchar(255) NOT NULL,
+  `ADMIN_NAME` varchar(255) NOT NULL,
+  `ADMIN_EMAIL` varchar(255) NOT NULL,
+  `ADMIN_PASSWORD` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`ADMIN_ID`, `ADMIN_NAME`, `ADMIN_EMAIL`, `ADMIN_PASSWORD`) VALUES
+('ADMIN123', 'Channveer Mulge', 'mulgechannveer@gmail.com', '$2y$10$vOHLFutr7aLFqQH3GMH7teeSrTORgbstRdMf4XHcoEUUynNQjDYG6'),
+('Krishna', 'Krishna Mankar', 'krishnamankarpatil@gmail.com', '$2y$10$6dymjs8.c0JySo/nz1KX..v3YxTA6gK2iPp36NQNpELGQVmC7DdCa');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `booking`
+--
+
+CREATE TABLE `booking` (
+  `BOOK_ID` int(11) NOT NULL,
+  `CAR_ID` int(11) NOT NULL,
+  `EMAIL` varchar(255) NOT NULL,
+  `BOOK_PLACE` varchar(255) NOT NULL,
+  `BOOK_DATE` date NOT NULL,
+  `DURATION` int(11) NOT NULL,
+  `PHONE_NUMBER` bigint(20) NOT NULL,
+  `DESTINATION` varchar(255) NOT NULL,
+  `RETURN_DATE` date NOT NULL,
+  `PRICE` int(11) NOT NULL,
+  `BOOK_STATUS` varchar(255) NOT NULL DEFAULT 'UNDER PROCESSING'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `booking`
+--
+
+INSERT INTO `booking` (`BOOK_ID`, `CAR_ID`, `EMAIL`, `BOOK_PLACE`, `BOOK_DATE`, `DURATION`, `PHONE_NUMBER`, `DESTINATION`, `RETURN_DATE`, `PRICE`, `BOOK_STATUS`) VALUES
+(86, 5, 'soham.personal02@gmail.com', 'Pune', '2024-12-01', 3, 9090909090, 'Satara', '2024-12-04', 6000, 'RETURNED'),
+(87, 6, 'soham.personal02@gmail.com', 'Mumbai', '2024-12-05', 4, 7878787878, 'Kolkata', '2024-12-08', 6000, 'RETURNED'),
+(90, 6, 'embomber.2022@gmail.com', 'Mumbai', '2024-12-05', 2, 7020841171, 'Banglore', '2024-12-06', 3000, 'RETURNED'),
+(91, 6, 'soham.personal02@gmail.com', '', '0000-00-00', 0, 0, '', '0000-00-00', 0, 'Rejected'),
+(92, 4, 'mulgechannveer@gmail.com', 'Pune', '2025-02-11', 3, 7020841171, 'Mumbai', '2025-02-13', 7500, 'RETURNED');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cars`
+--
+
+CREATE TABLE `cars` (
+  `CAR_ID` int(11) NOT NULL,
+  `CAR_NAME` varchar(255) NOT NULL,
+  `FUEL_TYPE` varchar(255) NOT NULL,
+  `CAPACITY` int(11) NOT NULL,
+  `PRICE` int(11) NOT NULL,
+  `CAR_IMG` varchar(255) NOT NULL,
+  `AVAILABLE` varchar(255) NOT NULL,
+  `CAR_TYPE` enum('Large','Small','Premium') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `cars`
+--
+
+INSERT INTO `cars` (`CAR_ID`, `CAR_NAME`, `FUEL_TYPE`, `CAPACITY`, `PRICE`, `CAR_IMG`, `AVAILABLE`, `CAR_TYPE`) VALUES
+(1, 'FERRAI', 'PETROL', 2, 10000, 'ferrari.jpg', 'Y', 'Premium'),
+(2, 'LAMBORGINI', 'Disel', 2, 12000, 'lamborghini.webp', 'Y', 'Premium'),
+(3, 'PORSCHE', 'Petrol', 2, 10000, 'IMG-672f639c26d598.30628388.jpg', 'Y', 'Premium'),
+(4, 'BMW', 'Disel', 4, 7500, 'IMG-672f65396d2667.34254433.jpg', 'Y', 'Premium'),
+(5, 'Suzuki Swift', 'Petrol', 5, 2000, 'IMG-672f6563a5cd41.62835718.jpg', 'Y', 'Small'),
+(6, 'Suzuki Ciaz', 'Petrol', 5, 1500, 'IMG-672f65868c6078.65393954.jpg', 'Y', 'Small'),
+(7, 'BMW 720', 'Petrol', 4, 4000, 'IMG-67b20e26493261.17516385.jpg', 'Y', 'Premium'),
+(29, 'Alto K10', 'Petrol', 5, 1500, 'IMG-67d2ffd01bc111.00723073.jpg', 'Y', 'Small'),
+(30, 'Ertiga', 'Diesel', 7, 3000, 'IMG-67d3001a5ad005.76427664.jpg', 'Y', 'Large'),
+(31, 'Toyota Fortuner', 'Diesel', 7, 3500, 'IMG-67d3003a022210.78911246.jpg', 'Y', 'Large'),
+(32, 'Hyundai i10', 'Petrol', 4, 2500, 'IMG-67d30071259c89.38091754.jpg', 'Y', 'Small'),
+(33, 'Toyota Innova', 'Diesel', 7, 4000, 'IMG-67d300a16ff365.82746480.jpg', 'Y', 'Large'),
+(34, 'Range Rover Velar', 'Diesel', 4, 8500, 'IMG-67d300cf4898e6.23174504.jpg', 'Y', 'Premium'),
+(35, 'Mahindra Scorpio ', 'Diesel', 8, 4500, 'IMG-67d300e9962ca6.96294090.webp', 'Y', 'Large'),
+(36, 'Mahindra XUV 700', 'Petrol', 7, 3500, 'IMG-67d3010819fea6.62922718.jpg', 'Y', 'Large');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `feedback`
+--
+
+CREATE TABLE `feedback` (
+  `FED_ID` int(11) NOT NULL,
+  `EMAIL` varchar(255) NOT NULL,
+  `COMMENT` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `feedback`
+--
+
+INSERT INTO `feedback` (`FED_ID`, `EMAIL`, `COMMENT`) VALUES
+(11, 'embomber.2022@gmail.com', 'Very Good!    :)');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `payment`
+--
+
+CREATE TABLE `payment` (
+  `PAY_ID` int(11) NOT NULL,
+  `BOOK_ID` int(11) NOT NULL,
+  `CARD_NO` varchar(255) NOT NULL,
+  `EXP_DATE` varchar(255) NOT NULL,
+  `CVV` int(11) NOT NULL,
+  `PRICE` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `payment`
+--
+
+INSERT INTO `payment` (`PAY_ID`, `BOOK_ID`, `CARD_NO`, `EXP_DATE`, `CVV`, `PRICE`) VALUES
+(27, 86, '1234567898765432', '12/26', 123, 6000),
+(28, 87, '1234567898765432', '12/25', 456, 6000),
+(31, 90, '9876543212345678', '04/27', 456, 3000),
+(32, 92, '', '', 0, 22500);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `FNAME` varchar(255) NOT NULL,
+  `LNAME` varchar(255) NOT NULL,
+  `EMAIL` varchar(255) NOT NULL,
+  `LIC_NUM` varchar(255) NOT NULL,
+  `PHONE_NUMBER` bigint(11) NOT NULL,
+  `PASSWORD` varchar(255) NOT NULL,
+  `GENDER` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`FNAME`, `LNAME`, `EMAIL`, `LIC_NUM`, `PHONE_NUMBER`, `PASSWORD`, `GENDER`) VALUES
+('Siddhesh', 'Sapkale', 'embomber.2022@gmail.com', 'MH12FZ9693', 9090909090, '024d9fd79fdeaab91edae1f93df8e2b4', 'male'),
+('Channveer', 'Mulge', 'mulgechannveer@gmail.com', 'MH14FZ9695', 7020841171, 'c98c99f5d9050b089e2b8620cef46cae', 'male'),
+('Soham', 'Shirke', 'soham.personal02@gmail.com', 'MH12JK1234', 123456789, '49028f5661ec7ccda21928d265fef961', 'male');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`ADMIN_ID`),
+  ADD UNIQUE KEY `ADMIN_EMAIL` (`ADMIN_EMAIL`);
+
+--
+-- Indexes for table `booking`
+--
+ALTER TABLE `booking`
+  ADD PRIMARY KEY (`BOOK_ID`),
+  ADD KEY `CAR_ID` (`CAR_ID`),
+  ADD KEY `EMAIL` (`EMAIL`);
+
+--
+-- Indexes for table `cars`
+--
+ALTER TABLE `cars`
+  ADD PRIMARY KEY (`CAR_ID`);
+
+--
+-- Indexes for table `feedback`
+--
+ALTER TABLE `feedback`
+  ADD PRIMARY KEY (`FED_ID`),
+  ADD KEY `TEST` (`EMAIL`);
+
+--
+-- Indexes for table `payment`
+--
+ALTER TABLE `payment`
+  ADD PRIMARY KEY (`PAY_ID`),
+  ADD UNIQUE KEY `BOOK_ID` (`BOOK_ID`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`EMAIL`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `booking`
+--
+ALTER TABLE `booking`
+  MODIFY `BOOK_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
+
+--
+-- AUTO_INCREMENT for table `cars`
+--
+ALTER TABLE `cars`
+  MODIFY `CAR_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+
+--
+-- AUTO_INCREMENT for table `feedback`
+--
+ALTER TABLE `feedback`
+  MODIFY `FED_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT for table `payment`
+--
+ALTER TABLE `payment`
+  MODIFY `PAY_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `booking`
+--
+ALTER TABLE `booking`
+  ADD CONSTRAINT `booking_ibfk_1` FOREIGN KEY (`CAR_ID`) REFERENCES `cars` (`CAR_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `booking_ibfk_2` FOREIGN KEY (`EMAIL`) REFERENCES `users` (`EMAIL`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `feedback`
+--
+ALTER TABLE `feedback`
+  ADD CONSTRAINT `TEST` FOREIGN KEY (`EMAIL`) REFERENCES `users` (`EMAIL`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `payment`
+--
+ALTER TABLE `payment`
+  ADD CONSTRAINT `payment_ibfk_1` FOREIGN KEY (`BOOK_ID`) REFERENCES `booking` (`BOOK_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
