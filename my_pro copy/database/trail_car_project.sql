@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3307
--- Generation Time: Feb 16, 2025 at 05:30 PM
+-- Host: 127.0.0.1
+-- Generation Time: Mar 13, 2025 at 04:49 PM
 -- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- PHP Version: 8.1.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `carproject`
+-- Database: `trail_car_project`
 --
 
 -- --------------------------------------------------------
@@ -66,11 +66,11 @@ CREATE TABLE `booking` (
 --
 
 INSERT INTO `booking` (`BOOK_ID`, `CAR_ID`, `EMAIL`, `BOOK_PLACE`, `BOOK_DATE`, `DURATION`, `PHONE_NUMBER`, `DESTINATION`, `RETURN_DATE`, `PRICE`, `BOOK_STATUS`) VALUES
-(86, 25, 'soham.personal02@gmail.com', 'Pune', '2024-12-01', 3, 9090909090, 'Satara', '2024-12-04', 6000, 'RETURNED'),
-(87, 26, 'soham.personal02@gmail.com', 'Mumbai', '2024-12-05', 4, 7878787878, 'Kolkata', '2024-12-08', 6000, 'RETURNED'),
-(90, 26, 'embomber.2022@gmail.com', 'Mumbai', '2024-12-05', 2, 7020841171, 'Banglore', '2024-12-06', 3000, 'RETURNED'),
-(91, 26, 'soham.personal02@gmail.com', '', '0000-00-00', 0, 0, '', '0000-00-00', 0, 'Rejected'),
-(92, 24, 'mulgechannveer@gmail.com', 'Pune', '2025-02-11', 3, 7020841171, 'Mumbai', '2025-02-13', 7500, 'RETURNED');
+(86, 5, 'soham.personal02@gmail.com', 'Pune', '2024-12-01', 3, 9090909090, 'Satara', '2024-12-04', 6000, 'RETURNED'),
+(87, 6, 'soham.personal02@gmail.com', 'Mumbai', '2024-12-05', 4, 7878787878, 'Kolkata', '2024-12-08', 6000, 'RETURNED'),
+(90, 6, 'embomber.2022@gmail.com', 'Mumbai', '2024-12-05', 2, 7020841171, 'Banglore', '2024-12-06', 3000, 'RETURNED'),
+(91, 6, 'soham.personal02@gmail.com', '', '0000-00-00', 0, 0, '', '0000-00-00', 0, 'Rejected'),
+(92, 4, 'mulgechannveer@gmail.com', 'Pune', '2025-02-11', 3, 7020841171, 'Mumbai', '2025-02-13', 7500, 'RETURNED');
 
 -- --------------------------------------------------------
 
@@ -94,13 +94,13 @@ CREATE TABLE `cars` (
 --
 
 INSERT INTO `cars` (`CAR_ID`, `CAR_NAME`, `FUEL_TYPE`, `CAPACITY`, `PRICE`, `CAR_IMG`, `AVAILABLE`, `CAR_TYPE`) VALUES
-(1, 'FERRAI', 'PETROL', 5, 5000, 'ferrari.jpg', 'Y', 'Large'),
-(2, 'LAMBORGINI', 'DEISEL', 6, 7000, 'lamborghini.webp', 'Y', 'Large'),
-(23, 'PORSCHE', 'Petrol', 4, 10000, 'IMG-672f639c26d598.30628388.jpg', 'Y', 'Large'),
-(24, 'BMW', 'Disel', 5, 7500, 'IMG-672f65396d2667.34254433.jpg', 'Y', 'Large'),
-(25, 'Suzuki Swift', 'Petrol', 5, 2000, 'IMG-672f6563a5cd41.62835718.jpg', 'Y', 'Large'),
-(26, 'Suzuki Ciaz', 'Petrol', 5, 1500, 'IMG-672f65868c6078.65393954.jpg', 'Y', 'Large'),
-(28, 'BMW 720', 'Petrol', 4, 4000, 'IMG-67b20e26493261.17516385.jpg', 'Y', 'Premium');
+(1, 'FERRAI', 'PETROL', 2, 10000, 'ferrari.jpg', 'Y', 'Premium'),
+(2, 'LAMBORGINI', 'Disel', 2, 12000, 'lamborghini.webp', 'Y', 'Premium'),
+(3, 'PORSCHE', 'Petrol', 2, 10000, 'IMG-672f639c26d598.30628388.jpg', 'Y', 'Premium'),
+(4, 'BMW', 'Disel', 4, 7500, 'IMG-672f65396d2667.34254433.jpg', 'Y', 'Premium'),
+(5, 'Suzuki Swift', 'Petrol', 5, 2000, 'IMG-672f6563a5cd41.62835718.jpg', 'Y', 'Small'),
+(6, 'Suzuki Ciaz', 'Petrol', 5, 1500, 'IMG-672f65868c6078.65393954.jpg', 'Y', 'Small'),
+(7, 'BMW 720', 'Petrol', 4, 4000, 'IMG-67b20e26493261.17516385.jpg', 'Y', 'Premium');
 
 -- --------------------------------------------------------
 

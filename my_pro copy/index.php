@@ -34,7 +34,7 @@
                 <a href="co.html" class="hover:underline">Contact</a>
                 <a href="adminlogin.php" class="hover:underline">Admin</a>
                 <a href="login.php" class="hover:underline">Login</a>
-            </nav>
+              </nav>
          </div>
         </header>
 
