@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 13, 2025 at 04:49 PM
+-- Generation Time: Mar 13, 2025 at 05:00 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.1.25
 
@@ -39,7 +39,8 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`ADMIN_ID`, `ADMIN_NAME`, `ADMIN_EMAIL`, `ADMIN_PASSWORD`) VALUES
-('ADMIN123', 'Channveer Mulge', 'mulgechannveer@gmail.com', '$2y$10$vOHLFutr7aLFqQH3GMH7teeSrTORgbstRdMf4XHcoEUUynNQjDYG6');
+('ADMIN123', 'Channveer Mulge', 'mulgechannveer@gmail.com', '$2y$10$vOHLFutr7aLFqQH3GMH7teeSrTORgbstRdMf4XHcoEUUynNQjDYG6'),
+('Krishna', 'Krishna Mankar', 'krishnamankarpatil@gmail.com', '$2y$10$6dymjs8.c0JySo/nz1KX..v3YxTA6gK2iPp36NQNpELGQVmC7DdCa');
 
 -- --------------------------------------------------------
 
@@ -100,7 +101,15 @@ INSERT INTO `cars` (`CAR_ID`, `CAR_NAME`, `FUEL_TYPE`, `CAPACITY`, `PRICE`, `CAR
 (4, 'BMW', 'Disel', 4, 7500, 'IMG-672f65396d2667.34254433.jpg', 'Y', 'Premium'),
 (5, 'Suzuki Swift', 'Petrol', 5, 2000, 'IMG-672f6563a5cd41.62835718.jpg', 'Y', 'Small'),
 (6, 'Suzuki Ciaz', 'Petrol', 5, 1500, 'IMG-672f65868c6078.65393954.jpg', 'Y', 'Small'),
-(7, 'BMW 720', 'Petrol', 4, 4000, 'IMG-67b20e26493261.17516385.jpg', 'Y', 'Premium');
+(7, 'BMW 720', 'Petrol', 4, 4000, 'IMG-67b20e26493261.17516385.jpg', 'Y', 'Premium'),
+(29, 'Alto K10', 'Petrol', 5, 1500, 'IMG-67d2ffd01bc111.00723073.jpg', 'Y', 'Small'),
+(30, 'Ertiga', 'Diesel', 7, 3000, 'IMG-67d3001a5ad005.76427664.jpg', 'Y', 'Large'),
+(31, 'Toyota Fortuner', 'Diesel', 7, 3500, 'IMG-67d3003a022210.78911246.jpg', 'Y', 'Large'),
+(32, 'Hyundai i10', 'Petrol', 4, 2500, 'IMG-67d30071259c89.38091754.jpg', 'Y', 'Small'),
+(33, 'Toyota Innova', 'Diesel', 7, 4000, 'IMG-67d300a16ff365.82746480.jpg', 'Y', 'Large'),
+(34, 'Range Rover Velar', 'Diesel', 4, 8500, 'IMG-67d300cf4898e6.23174504.jpg', 'Y', 'Premium'),
+(35, 'Mahindra Scorpio ', 'Diesel', 8, 4500, 'IMG-67d300e9962ca6.96294090.webp', 'Y', 'Large'),
+(36, 'Mahindra XUV 700', 'Petrol', 7, 3500, 'IMG-67d3010819fea6.62922718.jpg', 'Y', 'Large');
 
 -- --------------------------------------------------------
 
@@ -230,7 +239,7 @@ ALTER TABLE `booking`
 -- AUTO_INCREMENT for table `cars`
 --
 ALTER TABLE `cars`
-  MODIFY `CAR_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `CAR_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `feedback`
