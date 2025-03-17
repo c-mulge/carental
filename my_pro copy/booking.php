@@ -392,7 +392,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         document.querySelector('input[name="duration"]').addEventListener('change', function() {
             const duration = this.value;
             const pricePerDay = <?php echo $car['PRICE']; ?>;
-            const totalPrice = duration * pricePerDay;
+            const totalPrice = <?php duration * pricePerDay?>;
             document.querySelector('input[name="price"]').value = totalPrice;
         });
 
