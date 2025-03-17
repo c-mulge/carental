@@ -23,21 +23,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link href="cardetails.css" rel="stylesheet">
+    <!-- <link href="cardetails.css" rel="stylesheet"> -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CaRent - Our Fleet</title>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="cardetails.css">
     <style>
-        .nav-links a:hover,
-.nav-links a.active {
-    color: var(--secondary);
-}
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
 
-.nav-links a:hover::after,
-.nav-links a.active::after {
-    width: 100%;
-}
+        .book-button {
+            width: 48%; /* Changed from 50% to allow for gap */
+            display: inline-block;
+        }
+
+        footer {
+            background: var(--dark);
+            color: var(--light);
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
     </style>
 </head>
 <body>
@@ -74,7 +84,10 @@
                         <span><strong>Capacity:</strong> <?php echo $result['CAPACITY']; ?> Seats</span>
                         <span><strong>Rent:</strong> ₹<?php echo $result['PRICE']; ?>/day</span>
                     </div>
-                    <a href="booking.php?id=<?php echo $result['CAR_ID']; ?>" class="book-button">Book Now</a>
+                    <div class="button-container">
+                        <a href="details.php?id=<?php echo $result['CAR_ID']; ?>" class="book-button">View Details</a>
+                        <a href="booking.php?id=<?php echo $result['CAR_ID']; ?>" class="book-button">Book Now</a>
+                    </div>
                 </div>
             </div>
         <?php } ?>
@@ -93,7 +106,10 @@
                         <span><strong>Capacity:</strong> <?php echo $result['CAPACITY']; ?> Seats</span>
                         <span><strong>Rent:</strong> ₹<?php echo $result['PRICE']; ?>/day</span>
                     </div>
-                    <a href="booking.php?id=<?php echo $result['CAR_ID']; ?>" class="book-button">Book Now</a>
+                    <div class="button-container">
+                        <a href="details.php?id=<?php echo $result['CAR_ID']; ?>" class="book-button">View Details</a>
+                        <a href="booking.php?id=<?php echo $result['CAR_ID']; ?>" class="book-button">Book Now</a>
+                    </div>
                 </div>
             </div>
         <?php } ?>
@@ -112,11 +128,17 @@
                         <span><strong>Capacity:</strong> <?php echo $result['CAPACITY']; ?> Seats</span>
                         <span><strong>Rent:</strong> ₹<?php echo $result['PRICE']; ?>/day</span>
                     </div>
-                    <a href="booking.php?id=<?php echo $result['CAR_ID']; ?>" class="book-button">Book Now</a>
+                    <div class="button-container">
+                        <a href="details.php?id=<?php echo $result['CAR_ID']; ?>" class="book-button">View Details</a>
+                        <a href="booking.php?id=<?php echo $result['CAR_ID']; ?>" class="book-button">Book Now</a>
+                    </div>
                 </div>
             </div>
         <?php } ?>
     </div>
+    <footer>
+        <p>&copy; 2024 CaRental. All rights reserved.</p>
+    </footer>
 </body>
 </html>
 

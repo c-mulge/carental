@@ -61,6 +61,9 @@
                     <th>Capacity</th>
                     <th>Price</th>
                     <th>Available</th>
+                    <th>Transmission</th>
+                    <th>Mileage</th>
+                    <th>Deposit</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -77,6 +80,9 @@
                         <td><?php echo $res['CAPACITY']; ?></td>
                         <td><?php echo $res['PRICE']; ?></td>
                         <td><?php echo ($res['AVAILABLE'] == 'Y') ? 'Yes' : 'No'; ?></td>
+                        <td><?php echo $res['TRANSMISSION']; ?></td>
+                        <td><?php echo $res['MILEAGE']; ?></td>
+                        <td><?php echo $res['DEPOSITE_SECURITY']; ?></td>
                         <td>
                             <button class="but">
                                 <a href="deletecar.php?id=<?php echo $res['CAR_ID']; ?>">Delete</a>

@@ -92,21 +92,63 @@
                 </div>
             </div>
 
+            <div class="grid grid-cols-2 gap-4">
+
+                <div class="input-group">
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <i data-feather="target" class="icon text-gray-400 w-5 h-5"></i>
+                        </div>
+                        <input 
+                            type="number" name="mileage" id="price" placeholder="Milegae" min="2" required 
+                            class="pl-10 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 transition duration-300">
+                        <label for="mileage" class="sr-only">Mileage</label>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <i data-feather="dollar-sign" class="icon text-gray-400 w-5 h-5"></i>
+                        </div>
+                        <input 
+                            type="number" name="deposit" id="price" placeholder="Deposit" min="2" required 
+                            class="pl-10 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 transition duration-300">
+                        <label for="deposit" class="sr-only">Deposit</label>
+                    </div>
+                </div>
+            </div>
+
+                <div class="input-group">
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <i data-feather="sliders" class="icon text-gray-400 w-5 h-5"></i>
+                        </div>
+                        <select name="transmission" id="cartype" required 
+                        class="pl-10 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 transition duration-300">
+                            <option value="" disabled selected>Select Car Transmission</option>
+                            <option value="Manual">Manual</option>
+                            <option value="Automatic">Automatic</option>
+                        </select>
+                        <label for="transmission" class="sr-only">Transmission</label>
+                    </div>
+                </div>
+
             <div class="input-group">
-    <div class="relative">
-        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-            <i data-feather="tag" class="icon text-gray-400 w-5 h-5"></i>
-        </div>
-        <select name="cartype" id="cartype" required 
+                <div class="relative">
+                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <i data-feather="tag" class="icon text-gray-400 w-5 h-5"></i>
+                    </div>
+                <select name="cartype" id="cartype" required 
                 class="pl-10 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 transition duration-300">
-            <option value="" disabled selected>Select Car Type</option>
-            <option value="Small">Small Car</option>
-            <option value="Large">Large Car</option>
-            <option value="Premium">Premium Car</option>
-        </select>
-        <label for="cartype" class="sr-only">Car Type</label>
-    </div>
-</div>
+                    <option value="" disabled selected>Select Car Type</option>
+                    <option value="Small">Small Car</option>
+                    <option value="Large">Large Car</option>
+                    <option value="Premium">Premium Car</option>
+                </select>
+                <label for="cartype" class="sr-only">Car Type</label>
+                </div>
+            </div>
 
 
             <div class="input-group">

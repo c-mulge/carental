@@ -1,11 +1,7 @@
 <?php
 header('Content-Type: application/json');
 include('authentication.php');
-$con = mysqli_connect('127.0.0.1:3307', 'root', '', 'carproject');
-if (!$con) {
-    echo json_encode(['error' => 'Database connection failed']);
-    exit;
-}
+include('connection.php');
 
 try {
     $response = [];

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 17, 2025 at 07:18 PM
+-- Generation Time: Mar 13, 2025 at 05:00 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.1.25
 
@@ -59,24 +59,19 @@ CREATE TABLE `booking` (
   `DESTINATION` varchar(255) NOT NULL,
   `RETURN_DATE` date NOT NULL,
   `PRICE` int(11) NOT NULL,
-  `BOOK_STATUS` varchar(255) NOT NULL DEFAULT 'UNDER PROCESSING',
-  `PICK_UP_TIME` time DEFAULT NULL,
-  `DROP_TIME` time DEFAULT NULL
+  `BOOK_STATUS` varchar(255) NOT NULL DEFAULT 'UNDER PROCESSING'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `booking`
 --
 
-INSERT INTO `booking` (`BOOK_ID`, `CAR_ID`, `EMAIL`, `BOOK_PLACE`, `BOOK_DATE`, `DURATION`, `PHONE_NUMBER`, `DESTINATION`, `RETURN_DATE`, `PRICE`, `BOOK_STATUS`, `PICK_UP_TIME`, `DROP_TIME`) VALUES
-(86, 5, 'soham.personal02@gmail.com', 'Pune', '2024-12-01', 3, 9090909090, 'Satara', '2024-12-04', 6000, 'RETURNED', NULL, NULL),
-(87, 6, 'soham.personal02@gmail.com', 'Mumbai', '2024-12-05', 4, 7878787878, 'Kolkata', '2024-12-08', 6000, 'RETURNED', NULL, NULL),
-(90, 6, 'embomber.2022@gmail.com', 'Mumbai', '2024-12-05', 2, 7020841171, 'Banglore', '2024-12-06', 3000, 'RETURNED', NULL, NULL),
-(91, 6, 'soham.personal02@gmail.com', '', '0000-00-00', 0, 0, '', '0000-00-00', 0, 'Rejected', NULL, NULL),
-(92, 4, 'mulgechannveer@gmail.com', 'Pune', '2025-02-11', 3, 7020841171, 'Mumbai', '2025-02-13', 7500, 'RETURNED', NULL, NULL),
-(93, 11, 'soham.personal02@gmail.com', 'Pune', '2025-03-17', 2, 7020841171, 'Chennai', '2025-03-18', 5000, 'Approved', NULL, NULL),
-(94, 11, 'soham.personal02@gmail.com', 'Pune', '2025-03-17', 2, 7020841171, 'Chennai', '2025-03-18', 2500, 'Approved', NULL, NULL),
-(96, 5, 'soham.personal02@gmail.com', 'Delhi', '2025-03-17', 2, 1234567890, 'Akola', '2025-03-19', 2000, 'UNDER PROCESSING', NULL, NULL);
+INSERT INTO `booking` (`BOOK_ID`, `CAR_ID`, `EMAIL`, `BOOK_PLACE`, `BOOK_DATE`, `DURATION`, `PHONE_NUMBER`, `DESTINATION`, `RETURN_DATE`, `PRICE`, `BOOK_STATUS`) VALUES
+(86, 5, 'soham.personal02@gmail.com', 'Pune', '2024-12-01', 3, 9090909090, 'Satara', '2024-12-04', 6000, 'RETURNED'),
+(87, 6, 'soham.personal02@gmail.com', 'Mumbai', '2024-12-05', 4, 7878787878, 'Kolkata', '2024-12-08', 6000, 'RETURNED'),
+(90, 6, 'embomber.2022@gmail.com', 'Mumbai', '2024-12-05', 2, 7020841171, 'Banglore', '2024-12-06', 3000, 'RETURNED'),
+(91, 6, 'soham.personal02@gmail.com', '', '0000-00-00', 0, 0, '', '0000-00-00', 0, 'Rejected'),
+(92, 4, 'mulgechannveer@gmail.com', 'Pune', '2025-02-11', 3, 7020841171, 'Mumbai', '2025-02-13', 7500, 'RETURNED');
 
 -- --------------------------------------------------------
 
@@ -92,33 +87,29 @@ CREATE TABLE `cars` (
   `PRICE` int(11) NOT NULL,
   `CAR_IMG` varchar(255) NOT NULL,
   `AVAILABLE` varchar(255) NOT NULL,
-  `CAR_TYPE` enum('Large','Small','Premium') NOT NULL,
-  `TRANSMISSION` enum('Manual','Automatic') NOT NULL,
-  `MILEAGE` float DEFAULT NULL,
-  `DEPOSITE_SECURITY` int(11) DEFAULT NULL
+  `CAR_TYPE` enum('Large','Small','Premium') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `cars`
 --
 
-INSERT INTO `cars` (`CAR_ID`, `CAR_NAME`, `FUEL_TYPE`, `CAPACITY`, `PRICE`, `CAR_IMG`, `AVAILABLE`, `CAR_TYPE`, `TRANSMISSION`, `MILEAGE`, `DEPOSITE_SECURITY`) VALUES
-(1, 'FERRAI', 'PETROL', 2, 10000, 'ferrari.jpg', 'Y', 'Premium', 'Manual', 8.77, 2500),
-(2, 'LAMBORGINI', 'Disel', 2, 12000, 'lamborghini.webp', 'Y', 'Premium', 'Automatic', 8.62, 5000),
-(3, 'PORSCHE', 'Petrol', 2, 10000, 'IMG-672f639c26d598.30628388.jpg', 'Y', 'Premium', 'Automatic', 7.4, 2500),
-(4, 'BMW', 'Disel', 4, 7500, 'IMG-672f65396d2667.34254433.jpg', 'Y', 'Premium', 'Manual', 10.13, 1300),
-(5, 'Suzuki Swift', 'Petrol', 5, 2000, 'IMG-672f6563a5cd41.62835718.jpg', 'Y', 'Small', 'Manual', 24.8, 750),
-(6, 'Suzuki Ciaz', 'Petrol', 5, 1500, 'IMG-672f65868c6078.65393954.jpg', 'Y', 'Small', 'Manual', 20.5, 400),
-(7, 'BMW 720', 'Petrol', 4, 4000, 'IMG-67b20e26493261.17516385.jpg', 'Y', 'Premium', 'Automatic', 12.61, 850),
-(8, 'Alto K10', 'Petrol', 5, 1500, 'IMG-67d2ffd01bc111.00723073.jpg', 'Y', 'Small', 'Manual', 24.39, 450),
-(9, 'Ertiga', 'Diesel', 7, 3000, 'IMG-67d3001a5ad005.76427664.jpg', 'Y', 'Large', 'Manual', 20.5, 650),
-(10, 'Toyota Fortuner', 'Diesel', 7, 3500, 'IMG-67d3003a022210.78911246.jpg', 'Y', 'Large', 'Manual', 12.61, 700),
-(11, 'Hyundai i10', 'Petrol', 4, 2500, 'IMG-67d30071259c89.38091754.jpg', 'Y', 'Small', 'Manual', 20.3, 600),
-(12, 'Toyota Innova', 'Diesel', 7, 4000, 'IMG-67d300a16ff365.82746480.jpg', 'Y', 'Large', 'Manual', 13, 750),
-(13, 'Range Rover Velar', 'Diesel', 4, 8500, 'IMG-67d300cf4898e6.23174504.jpg', 'Y', 'Premium', 'Manual', 15.8, 1800),
-(14, 'Mahindra Scorpio ', 'Diesel', 8, 4500, 'IMG-67d300e9962ca6.96294090.webp', 'Y', 'Large', 'Automatic', 15.4, 7500),
-(15, 'Mahindra XUV 700', 'Petrol', 7, 3500, 'IMG-67d3010819fea6.62922718.jpg', 'Y', 'Large', 'Automatic', 13.2, 650),
-(37, 'Tata Punch', 'Petrol', 4, 2000, 'IMG-67d84a114f43a7.42074537.jpeg', 'Y', 'Small', 'Manual', 19, 750);
+INSERT INTO `cars` (`CAR_ID`, `CAR_NAME`, `FUEL_TYPE`, `CAPACITY`, `PRICE`, `CAR_IMG`, `AVAILABLE`, `CAR_TYPE`) VALUES
+(1, 'FERRAI', 'PETROL', 2, 10000, 'ferrari.jpg', 'Y', 'Premium'),
+(2, 'LAMBORGINI', 'Disel', 2, 12000, 'lamborghini.webp', 'Y', 'Premium'),
+(3, 'PORSCHE', 'Petrol', 2, 10000, 'IMG-672f639c26d598.30628388.jpg', 'Y', 'Premium'),
+(4, 'BMW', 'Disel', 4, 7500, 'IMG-672f65396d2667.34254433.jpg', 'Y', 'Premium'),
+(5, 'Suzuki Swift', 'Petrol', 5, 2000, 'IMG-672f6563a5cd41.62835718.jpg', 'Y', 'Small'),
+(6, 'Suzuki Ciaz', 'Petrol', 5, 1500, 'IMG-672f65868c6078.65393954.jpg', 'Y', 'Small'),
+(7, 'BMW 720', 'Petrol', 4, 4000, 'IMG-67b20e26493261.17516385.jpg', 'Y', 'Premium'),
+(29, 'Alto K10', 'Petrol', 5, 1500, 'IMG-67d2ffd01bc111.00723073.jpg', 'Y', 'Small'),
+(30, 'Ertiga', 'Diesel', 7, 3000, 'IMG-67d3001a5ad005.76427664.jpg', 'Y', 'Large'),
+(31, 'Toyota Fortuner', 'Diesel', 7, 3500, 'IMG-67d3003a022210.78911246.jpg', 'Y', 'Large'),
+(32, 'Hyundai i10', 'Petrol', 4, 2500, 'IMG-67d30071259c89.38091754.jpg', 'Y', 'Small'),
+(33, 'Toyota Innova', 'Diesel', 7, 4000, 'IMG-67d300a16ff365.82746480.jpg', 'Y', 'Large'),
+(34, 'Range Rover Velar', 'Diesel', 4, 8500, 'IMG-67d300cf4898e6.23174504.jpg', 'Y', 'Premium'),
+(35, 'Mahindra Scorpio ', 'Diesel', 8, 4500, 'IMG-67d300e9962ca6.96294090.webp', 'Y', 'Large'),
+(36, 'Mahindra XUV 700', 'Petrol', 7, 3500, 'IMG-67d3010819fea6.62922718.jpg', 'Y', 'Large');
 
 -- --------------------------------------------------------
 
@@ -162,8 +153,7 @@ INSERT INTO `payment` (`PAY_ID`, `BOOK_ID`, `CARD_NO`, `EXP_DATE`, `CVV`, `PRICE
 (27, 86, '1234567898765432', '12/26', 123, 6000),
 (28, 87, '1234567898765432', '12/25', 456, 6000),
 (31, 90, '9876543212345678', '04/27', 456, 3000),
-(32, 92, '', '', 0, 22500),
-(33, 94, '', '', 0, 5000);
+(32, 92, '', '', 0, 22500);
 
 -- --------------------------------------------------------
 
@@ -233,7 +223,9 @@ ALTER TABLE `payment`
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`EMAIL`);
+ADD COLUMN `USER_ID` INT AUTO_INCREMENT,
+ADD PRIMARY KEY (`USER_ID`);
+
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -243,13 +235,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `booking`
 --
 ALTER TABLE `booking`
-  MODIFY `BOOK_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=98;
+  MODIFY `BOOK_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
 
 --
 -- AUTO_INCREMENT for table `cars`
 --
 ALTER TABLE `cars`
-  MODIFY `CAR_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `CAR_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `feedback`
@@ -261,7 +253,7 @@ ALTER TABLE `feedback`
 -- AUTO_INCREMENT for table `payment`
 --
 ALTER TABLE `payment`
-  MODIFY `PAY_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `PAY_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- Constraints for dumped tables

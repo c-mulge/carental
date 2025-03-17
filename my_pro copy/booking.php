@@ -15,13 +15,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $book_place = $_POST['book_place']; // Place of booking
     $book_date = $_POST['book_date']; // Booking date
     $duration = $_POST['duration']; // Duration of rental
+    $pickup=$_POST['pickup'];
+    $drop=$_POST['drop'];
     $phone_number = $_POST['phone_number']; // User's phone number
     $destination = $_POST['destination']; // Destination for the car rental
     $return_date = $_POST['return_date']; // Return date
     $price = $_POST['price']; // Price for the booking
     
-    $sql = "INSERT INTO booking (CAR_ID, EMAIL, BOOK_PLACE, BOOK_DATE, DURATION, PHONE_NUMBER, DESTINATION, RETURN_DATE, PRICE, BOOK_STATUS) 
-            VALUES ('$car_id', '$user_email', '$book_place', '$book_date', '$duration', '$phone_number', '$destination', '$return_date', '$price', 'UNDER PROCESSING')";
+    $sql = "INSERT INTO booking (CAR_ID, EMAIL, BOOK_PLACE, BOOK_DATE, DURATION, PHONE_NUMBER, DESTINATION, RETURN_DATE, PRICE, BOOK_STATUS, PICK_UP_TIME, DROP_TIME) 
+            VALUES ('$car_id', '$user_email', '$book_place', '$book_date', '$duration', '$phone_number', '$destination', '$return_date', '$price', 'UNDER PROCESSING', '$pickup', '$drop')";
 
     if (mysqli_query($con, $sql)) {
         $booking_id = mysqli_insert_id($con); 
@@ -349,8 +351,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
 
             <div>
-                <label for="book_date"><i class="fas fa-calendar-alt"></i> Booking Date</label>
+                <label for="book_date"><i class="fas fa-calendar-alt"></i> Start Date</label>
                 <input type="date" name="book_date" required>
+            </div>
+
+            <div>
+                <label for="pickup"><i class="fas fa-clock"></i> Pick Up:</label>
+                <input type="time" name="pickup" required placeholder="Pick Up Time">
             </div>
 
             <div>
@@ -371,6 +378,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div>
                 <label for="return_date"><i class="fas fa-calendar-check"></i> Return Date</label>
                 <input type="date" name="return_date" required>
+            </div>
+
+            <div>
+                <label for="drop"><i class="fas fa-clock"></i> Drop:</label>
+                <input type="time" name="drop" required placeholder="Drop Time">
             </div>
 
             <input type="hidden" name="price" value="<?php echo isset($_POST['duration']) ? $car['PRICE'] : $car['PRICE']; ?>">

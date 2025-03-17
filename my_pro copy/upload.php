@@ -32,12 +32,15 @@ if (isset($_POST['addcar'])) {
             $ftype = mysqli_real_escape_string($con, $_POST['ftype']);
             $capacity = mysqli_real_escape_string($con, $_POST['capacity']);
             $price = mysqli_real_escape_string($con, $_POST['price']);
-            $cartype = mysqli_real_escape_string($con, $_POST['cartype']);  // New field for car type
+            $cartype = mysqli_real_escape_string($con, $_POST['cartype']); 
+            $mileage = mysqli_real_escape_string($con, $_POST['mileage']);  
+            $deposit = mysqli_real_escape_string($con, $_POST['deposit']);  
+            $transmission = mysqli_real_escape_string($con, $_POST['transmission']);  
             $available = "Y";
 
             // Insert query with CAR_TYPE included
-            $query = "INSERT INTO cars (CAR_NAME, FUEL_TYPE, CAPACITY, PRICE, CAR_IMG, AVAILABLE, CAR_TYPE) 
-                      VALUES ('$carname', '$ftype', $capacity, $price, '$new_img_name', '$available', '$cartype')";
+            $query = "INSERT INTO cars (CAR_NAME, FUEL_TYPE, CAPACITY, PRICE, CAR_IMG, AVAILABLE, CAR_TYPE, TRANSMISSION, MILEAGE, DEPOSITE_SECURITY) 
+                      VALUES ('$carname', '$ftype', $capacity, $price, '$new_img_name', '$available', '$cartype','$transmission','$mileage','$deposit')";
             
             $res = mysqli_query($con, $query);
 
