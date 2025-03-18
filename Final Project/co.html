@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - CaRent</title>
+    <link rel="stylesheet" href="co.css">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet"> -->
+</head>
+<body>
+    <!-- Modern Navigation -->
+    <nav class="top-nav">
+        <a href="index.php" class="logo">CaRental</a>
+        <ul class="nav-links">
+            <li><a href="index.php">Home</a></li>
+            <li><a href="cardetails.php">Cars</a></li>
+            <li><a href="co.html" class="active">Contact Us</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+        </ul>
+    </nav>
+
+    <!-- Page Header -->
+    <h1 class="overview">Get in Touch</h1>
+
+    <!-- Contact Container -->
+    <div class="contact-container">
+        <div class="contact-info-card">
+            <h2>Contact CaRental</h2>
+            <p>Have questions or need assistance? We're here to help!</p>
+            <div class="contact-details">
+                <div class="contact-item">
+                    <strong>Phone:</strong>
+                    <span>+91 987-654-3210</span>
+                </div>
+                <div class="contact-item">
+                    <strong>Email:</strong>
+                    <span>support@carent.com</span>
+                </div>
+                <div class="contact-item">
+                    <strong>Address:</strong>
+                    <span>Modern College, Shivajinagar, Pune</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="contact-form-card">
+            <h2>Send Us a Message</h2>
+            <form action="submit_contact.php" method="POST">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject">
+                </div>
+                <div class="form-group">
+                    <label for="message">Your Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="book-button">Send Message</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
