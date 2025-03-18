@@ -7,6 +7,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ADMINISTRATOR</title>
     <link href="adbook.css" rel="stylesheet">
+    <style>
+        .reject-btn{
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: none;
+        }
+        .reject-btn {
+            background: #ef4444;;
+        }
+        .reject-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.3);
+        }
+        .reject-btn a{
+            color: white;
+            text-decoration: none;
+            display: block;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .book-button {
+            width: 48%; /* Changed from 50% to allow for gap */
+            display: inline-block;
+        }
+    </style>
 </head>
 <body>
     <?php
@@ -69,9 +103,14 @@
                                 <td><?php echo $status; ?></td>
                                 <td>
                                     <?php if ($status == 'UNDER PROCESSING') { ?>
-                                        <button class="approve-btn">
-                                            <a href="approve.php?id=<?php echo $book_id; ?>&email=<?php echo $email; ?>">Approve</a>
-                                        </button>
+                                        <div class="button-container">
+                                            <button class="approve-btn">
+                                                <a href="approve.php?id=<?php echo $book_id; ?>&email=<?php echo $email; ?>" class="book-button">Approve</a>
+                                            </button>
+                                            <button class="reject-btn">
+                                                <a href="reject.php?id=<?php echo $book_id; ?>&email=<?php echo $email; ?>" class="book-button">Reject</a>
+                                            </button>
+                                        </div>
                                     <?php } elseif ($status == 'Approved') { ?>
                                         <button class="return-btn">
                                             <a href="adminreturn.php?id=<?php echo $res['CAR_ID']; ?>&bookid=<?php echo $book_id; ?>">Returned</a>

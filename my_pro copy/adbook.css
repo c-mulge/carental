@@ -201,7 +201,7 @@ main {
 }
 
 /* Button Styles */
-.approve-btn, .return-btn, .returned-btn {
+.approve-btn, .return-btn, .returned-btn, .reject-btn{
     padding: 0.5rem 1rem;
     border-radius: 6px;
     font-weight: 500;
@@ -215,8 +215,17 @@ main {
     background: var(--success);
 }
 
+.reject-btn {
+    background: var(--danger);
+}
+
 .approve-btn:hover {
     background: #0d9668;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.3);
+}
+
+.reject-btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.3);
 }
@@ -236,7 +245,7 @@ main {
     cursor: not-allowed;
 }
 
-.approve-btn a, .return-btn a {
+.approve-btn a, .return-btn a , .reject-btn a{
     color: white;
     text-decoration: none;
     display: block;

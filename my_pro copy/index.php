@@ -25,7 +25,7 @@
 
 <body>
     <div class="container">
-        <header class="bg-900 flex items-center justify-between py-4 px-6 hhh" >
+        <header class="bg-900 flex items-center justify-between py-8 px-6 hhh" >
          <div class="container mx-auto flex justify-between items-center">
          <div class="logo text-2xl font-bold">Rental</div>
             <nav class="menu space-x-6">
@@ -84,35 +84,31 @@
           <div class="bg-white p-6 rounded-md shadow-md car-listing hover:shadow-lg transition">
             <img src="images/carbg5.jpg" alt="All New Rush" class="mb-4">
             <h3 class="text-xl font-bold mb-2">All New Rush</h3>
-            <p class="text-gray-600 font-medium mb-4">$3500/day</p>
-            <button class="more-details bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-md">More Details</button>
+            <p class="text-gray-600 font-medium mb-4">₹3500/day</p>
+            <a href="cardetails.php" class="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-md">Rent Now</a>
           </div>
           <div class="bg-white p-6 rounded-md shadow-md">
             <img src="images/fortuner.jpg" alt="Large Car" class="mb-4">
             <h3 class="text-xl font-bold mb-2">Large Car</h3>
-            <p class="text-gray-600 font-medium mb-4">$4500/day</p>
+            <p class="text-gray-600 font-medium mb-4">₹4500/day</p>
             <a href="cardetails.php" class="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-md">Rent Now</a>
           </div>
           <div class="bg-white p-6 rounded-md shadow-md">
             <img src="images/i10.jpg" alt="Small Car" class="mb-4">
             <h3 class="text-xl font-bold mb-2">Small Car</h3>
-            <p class="text-gray-600 font-medium mb-4">$2000/day</p>
+            <p class="text-gray-600 font-medium mb-4">₹2000/day</p>
             <a href="cardetails.php" class="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-md">Rent Now</a>
           </div>
           <div class="bg-white p-6 rounded-md shadow-md car-listing hover:shadow-lg transition">
             <img src="images/ferrari.jpg" alt="Premium Cars" class="mb-4">
             <h3 class="text-xl font-bold mb-2">Premium Cars</h3>
-            <p class="text-gray-600 font-medium mb-4">$8000/day</p>
-            <button class="more-details bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-md">More Details</button>
+            <p class="text-gray-600 font-medium mb-4">₹8000/day</p>
+            <a href="cardetails.php" class="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-md">Rent Now</a>
           </div>
 
         </div>
       </div>
     </section>
-
-    <button id="chatBtn" class="fixed bottom-6 right-6 bg-blue-600 text-white px-4 py-2 rounded-full shadow-lg">
-    Chat
-</button>
 
 
     <section class="py-12 px-4 sm:px-6 lg:px-8">
@@ -167,7 +163,7 @@
                 <ul class="list-none space-y-2">
                     <li><a href="index.php" class="hover:text-gray-300 transition">Home</a></li>
                     <li><a href="aboutus.html" class="hover:text-gray-300 transition">About Us</a></li>
-                    <li><a href="contactus.html" class="hover:text-gray-300 transition">Contact</a></li>
+                    <li><a href="co.html" class="hover:text-gray-300 transition">Contact</a></li>
                     <li><a href="adminlogin.php" class="hover:text-gray-300 transition">Admin</a></li>
                     <li><a href="login.php" class="hover:text-gray-300 transition">Login</a></li>
                 </ul>

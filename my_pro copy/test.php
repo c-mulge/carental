@@ -12,9 +12,9 @@ function smtp_mailer($to,$subject, $msg){
 	$mail->IsHTML(true);
 	$mail->CharSet = 'UTF-8';
 	//$mail->SMTPDebug = 2; 
-	$mail->Username = "mulgechannveer@gmail.com";
-	$mail->Password = "qdowinlpaoqjdhvz";
-	$mail->SetFrom("mulgechannveer@gmail.com");
+	$mail->Username = "carental25@gmail.com";
+	$mail->Password = "gsotavpjqxwuxhjy";
+	$mail->SetFrom("carental25@gmail.com");
 	$mail->Subject = $subject;
 	$mail->Body =$msg;
 	$mail->AddAddress($to);
