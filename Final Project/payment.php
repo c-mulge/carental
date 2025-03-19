@@ -440,6 +440,9 @@ $orderJson = json_encode($order);
                     "image": "https://example.com/your_logo",
                     "order_id": order.id, // Dynamically set order_id
                     "callback_url": "psucess.php",
+                    "handler": function (response){
+        window.location.href = "payment_success.php?payment_id=" + response.razorpay_payment_id;
+    },
                     "prefill": {
                         "name": "<?php echo htmlspecialchars($rows['FNAME'] . " " . $rows['LNAME']); ?>",
                         "email": "<?php echo htmlspecialchars($rows['EMAIL']); ?>",

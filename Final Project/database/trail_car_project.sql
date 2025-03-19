@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 17, 2025 at 07:18 PM
+-- Generation Time: Mar 19, 2025 at 08:53 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.1.25
 
@@ -61,22 +61,28 @@ CREATE TABLE `booking` (
   `PRICE` int(11) NOT NULL,
   `BOOK_STATUS` varchar(255) NOT NULL DEFAULT 'UNDER PROCESSING',
   `PICK_UP_TIME` time DEFAULT NULL,
-  `DROP_TIME` time DEFAULT NULL
+  `DROP_TIME` time DEFAULT NULL,
+  `STATUS` varchar(20) DEFAULT 'Pending'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `booking`
 --
 
-INSERT INTO `booking` (`BOOK_ID`, `CAR_ID`, `EMAIL`, `BOOK_PLACE`, `BOOK_DATE`, `DURATION`, `PHONE_NUMBER`, `DESTINATION`, `RETURN_DATE`, `PRICE`, `BOOK_STATUS`, `PICK_UP_TIME`, `DROP_TIME`) VALUES
-(86, 5, 'soham.personal02@gmail.com', 'Pune', '2024-12-01', 3, 9090909090, 'Satara', '2024-12-04', 6000, 'RETURNED', NULL, NULL),
-(87, 6, 'soham.personal02@gmail.com', 'Mumbai', '2024-12-05', 4, 7878787878, 'Kolkata', '2024-12-08', 6000, 'RETURNED', NULL, NULL),
-(90, 6, 'embomber.2022@gmail.com', 'Mumbai', '2024-12-05', 2, 7020841171, 'Banglore', '2024-12-06', 3000, 'RETURNED', NULL, NULL),
-(91, 6, 'soham.personal02@gmail.com', '', '0000-00-00', 0, 0, '', '0000-00-00', 0, 'Rejected', NULL, NULL),
-(92, 4, 'mulgechannveer@gmail.com', 'Pune', '2025-02-11', 3, 7020841171, 'Mumbai', '2025-02-13', 7500, 'RETURNED', NULL, NULL),
-(93, 11, 'soham.personal02@gmail.com', 'Pune', '2025-03-17', 2, 7020841171, 'Chennai', '2025-03-18', 5000, 'Approved', NULL, NULL),
-(94, 11, 'soham.personal02@gmail.com', 'Pune', '2025-03-17', 2, 7020841171, 'Chennai', '2025-03-18', 2500, 'Approved', NULL, NULL),
-(96, 5, 'soham.personal02@gmail.com', 'Delhi', '2025-03-17', 2, 1234567890, 'Akola', '2025-03-19', 2000, 'UNDER PROCESSING', NULL, NULL);
+INSERT INTO `booking` (`BOOK_ID`, `CAR_ID`, `EMAIL`, `BOOK_PLACE`, `BOOK_DATE`, `DURATION`, `PHONE_NUMBER`, `DESTINATION`, `RETURN_DATE`, `PRICE`, `BOOK_STATUS`, `PICK_UP_TIME`, `DROP_TIME`, `STATUS`) VALUES
+(86, 5, 'soham.personal02@gmail.com', 'Pune', '2024-12-01', 3, 9090909090, 'Satara', '2024-12-04', 6000, 'RETURNED', NULL, NULL, 'Pending'),
+(87, 6, 'soham.personal02@gmail.com', 'Mumbai', '2024-12-05', 4, 7878787878, 'Kolkata', '2024-12-08', 6000, 'RETURNED', NULL, NULL, 'Pending'),
+(90, 6, 'embomber.2022@gmail.com', 'Mumbai', '2024-12-05', 2, 7020841171, 'Banglore', '2024-12-06', 3000, 'RETURNED', NULL, NULL, 'Pending'),
+(91, 6, 'soham.personal02@gmail.com', '', '0000-00-00', 0, 0, '', '0000-00-00', 0, 'Rejected', NULL, NULL, 'Pending'),
+(92, 4, 'mulgechannveer@gmail.com', 'Pune', '2025-02-11', 3, 7020841171, 'Mumbai', '2025-02-13', 7500, 'RETURNED', NULL, NULL, 'Pending'),
+(93, 11, 'soham.personal02@gmail.com', 'Pune', '2025-03-17', 2, 7020841171, 'Chennai', '2025-03-18', 5000, 'RETURNED', NULL, NULL, 'Pending'),
+(94, 11, 'soham.personal02@gmail.com', 'Pune', '2025-03-17', 2, 7020841171, 'Chennai', '2025-03-18', 2500, 'RETURNED', NULL, NULL, 'Pending'),
+(96, 5, 'soham.personal02@gmail.com', 'Delhi', '2025-03-17', 2, 1234567890, 'Akola', '2025-03-19', 2000, 'Rejected', NULL, NULL, 'Pending'),
+(99, 15, 'soham.personal02@gmail.com', 'Bhosari', '2025-03-18', 6, 545453564656, 'Rajasthan ', '2025-03-27', 3500, 'Rejected', '14:21:00', '20:21:00', 'Pending'),
+(102, 2, 'soham.personal02@gmail.com', 'Pune', '2025-03-19', 4, 7020841171, 'Amravati', '2025-03-23', 12000, 'UNDER PROCESSING', '03:17:00', '01:16:00', 'Pending'),
+(103, 15, 'soham.personal02@gmail.com', 'Pune', '2025-03-19', 2, 7020841171, 'Amravati', '2025-03-21', 3500, 'UNDER PROCESSING', '06:27:00', '03:25:00', 'Pending'),
+(106, 12, 'soham.personal02@gmail.com', 'Pune', '2025-03-20', 2, 7020841171, 'Amravati', '2025-03-21', 4000, 'UNDER PROCESSING', '16:16:00', '17:18:00', 'Paid'),
+(107, 8, 'soham.personal02@gmail.com', 'Pune', '2025-03-20', 2, 7020841171, 'Chennai', '2025-03-22', 1500, 'UNDER PROCESSING', '16:23:00', '13:24:00', 'Paid');
 
 -- --------------------------------------------------------
 
@@ -137,7 +143,8 @@ CREATE TABLE `feedback` (
 --
 
 INSERT INTO `feedback` (`FED_ID`, `EMAIL`, `COMMENT`) VALUES
-(11, 'embomber.2022@gmail.com', 'Very Good!    :)');
+(11, 'embomber.2022@gmail.com', 'Very Good!    :)'),
+(12, 'soham.personal02@gmail.com', 'mast mast ');
 
 -- --------------------------------------------------------
 
@@ -163,7 +170,9 @@ INSERT INTO `payment` (`PAY_ID`, `BOOK_ID`, `CARD_NO`, `EXP_DATE`, `CVV`, `PRICE
 (28, 87, '1234567898765432', '12/25', 456, 6000),
 (31, 90, '9876543212345678', '04/27', 456, 3000),
 (32, 92, '', '', 0, 22500),
-(33, 94, '', '', 0, 5000);
+(33, 94, '', '', 0, 5000),
+(41, 106, 'Razorpay', 'N/A', 0, 8000),
+(42, 107, 'Razorpay', 'N/A', 0, 3000);
 
 -- --------------------------------------------------------
 
@@ -243,7 +252,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `booking`
 --
 ALTER TABLE `booking`
-  MODIFY `BOOK_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=98;
+  MODIFY `BOOK_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108;
 
 --
 -- AUTO_INCREMENT for table `cars`
@@ -255,13 +264,13 @@ ALTER TABLE `cars`
 -- AUTO_INCREMENT for table `feedback`
 --
 ALTER TABLE `feedback`
-  MODIFY `FED_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `FED_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `payment`
 --
 ALTER TABLE `payment`
-  MODIFY `PAY_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `PAY_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- Constraints for dumped tables
