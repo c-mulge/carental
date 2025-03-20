@@ -1,23 +1,23 @@
 <?php
 require_once('connection.php');
-include('test.php'); // Include mail function
+include('test.php'); 
 
 if (isset($_GET['id']) && isset($_GET['email'])) {
     $book_id = $_GET['id'];
     $email = $_GET['email'];
 
-    // Fetch booking details
+
     $query = "SELECT * FROM booking WHERE BOOK_ID='$book_id'";
     $result = mysqli_query($con, $query);
     $booking = mysqli_fetch_assoc($result);
 
     if ($booking) {
-        // Update the booking status to 'Approved'
+
         $updateQuery = "UPDATE booking SET BOOK_STATUS='Approved' WHERE BOOK_ID='$book_id'";
         $updateResult = mysqli_query($con, $updateQuery);
 
         if ($updateResult) {
-            // Email content with booking details
+
             $subject = "Booking Approved - CaRent";
             $message = "
                 <p>Dear User,</p>

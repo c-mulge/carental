@@ -19,6 +19,12 @@
         body::-webkit-scrollbar{
             display: none;
         }
+        .cn{
+          margin-right: 12px; 
+        }
+        .bot{
+          display: inline-block;
+        }
     </style>
     
 </head>
@@ -30,6 +36,7 @@
          <div class="logo text-2xl font-bold">Rental</div>
             <nav class="menu space-x-6">
                 <a href="index.php" class="hover:underline">Home</a>
+                <a href="cardetails.php" class="hover:underline">Cars</a>
                 <a href="aboutus2.html" class="hover:underline">About Us</a>
                 <a href="co.html" class="hover:underline">Contact</a>
                 <a href="adminlogin.php" class="hover:underline">Admin</a>
@@ -46,7 +53,10 @@
             Our Car Rental online booking system is designed to meet the specific needs of car rental business owners. 
             This easy-to-use car rental software will let you manage.
             </p>
-            <button class="cn mt-6"><a href="register.php" class="text-white">Join Us</a></button>
+            <div class="bot">
+              <button class="cn mt-6"><a href="adreg.php" class="text-white">Join Us</a></button>
+              <button class="cn mt-6"><a href="register.php" class="text-white">Book Now</a></button>
+            </div>
         </div>
         <section class="py-12 px-4 sm:px-6 lg:px-8">
       <div class="max-w-7xl mx-auto">

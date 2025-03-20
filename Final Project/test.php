@@ -1,7 +1,6 @@
 <?php
 include('smtp/PHPMailerAutoload.php');
 
-// echo smtp_mailer('coddyguy@gmail.com','Your Booking is Confirmed!','html');
 function smtp_mailer($to,$subject, $msg){
 	$mail = new PHPMailer(); 
 	$mail->IsSMTP(); 

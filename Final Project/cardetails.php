@@ -5,12 +5,10 @@
     $value = $_SESSION['email'];
     $_SESSION['email'] = $value;
     
-    // Fetch user details
     $sql = "SELECT * FROM users WHERE EMAIL='$value'";
     $name = mysqli_query($con, $sql);
     $rows = mysqli_fetch_assoc($name);
     
-    // Fetch cars by categories
     $large_cars_query = "SELECT * FROM cars WHERE AVAILABLE='Y' AND CAR_TYPE = 'Large'";
     $small_cars_query = "SELECT * FROM cars WHERE AVAILABLE='Y' AND CAR_TYPE = 'Small'";
     $premium_cars_query = "SELECT * FROM cars WHERE AVAILABLE='Y' AND CAR_TYPE = 'Premium'";
@@ -23,7 +21,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- <link href="cardetails.css" rel="stylesheet"> -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CaRent - Our Fleet</title>
@@ -37,7 +34,7 @@
         }
 
         .book-button {
-            width: 48%; /* Changed from 50% to allow for gap */
+            width: 48%;
             display: inline-block;
         }
 
@@ -71,7 +68,6 @@
 
     <h1 class="overview">OUR CARS OVERVIEW</h1>
 
-    <!-- Large Cars Section -->
     <h2 class="category-title">Large Cars</h2>
     <div class="car-grid">
         <?php while ($result = mysqli_fetch_array($large_cars)) { ?>
@@ -93,7 +89,6 @@
         <?php } ?>
     </div>
 
-    <!-- Small Cars Section -->
     <h2 class="category-title">Small Cars</h2>
     <div class="car-grid">
         <?php while ($result = mysqli_fetch_array($small_cars)) { ?>
@@ -115,7 +110,6 @@
         <?php } ?>
     </div>
 
-    <!-- Premium Cars Section -->
     <h2 class="category-title">Premium Cars</h2>
     <div class="car-grid">
         <?php while ($result = mysqli_fetch_array($premium_cars)) { ?>
