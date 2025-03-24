@@ -46,8 +46,8 @@
         <ul class="nav-links">
             <li><a href="index.php">Home</a></li>
             <li><a href="cardetails.php">Cars</a></li>
-            <li><a href="about.php">About</a></li>
-            <li><a href="co.php">Contact</a></li>
+            <li><a href="aboutus.html">About</a></li>
+            <li><a href="co.html">Contact</a></li>
             <li><a href="feedback/Feedbacks.php">Feedback</a></li>
             <li><a href="bookinstatus.php">Booking Status</a></li>
             <li><a href="bookings.php" class="active">Booking History</a></li>
