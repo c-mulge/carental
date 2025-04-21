@@ -23,8 +23,8 @@
                     <li><a href="#features">Features</a></li>
                     <li><a href="#how-it-works">How It Works</a></li>
                     <li><a href="#pricing">Pricing</a></li>
-                    <li><a href="login.php" class="btn btn-outline">Login</a></li>
-                    <li><a href="Frontend/register.php" class="btn btn-primary">Sign Up</a></li>
+                    <li><a href="frontend/login.php" class="btn btn-outline">Login</a></li>
+                    <li><a href="frontend/register.php" class="btn btn-primary">Sign Up</a></li>
                 </ul>
             </div>
         </nav>
@@ -39,9 +39,6 @@
                         <a href="#demo" class="btn btn-secondary btn-large">Watch Demo</a>
                     </div>
                 </div>
-                <!-- <div class="hero-image">
-                    <img src="/api/placeholder/600/400" alt="CodeHub Dashboard Preview">
-                </div> -->
             </div>
         </div>
     </header>
@@ -130,7 +127,6 @@
                 <h2>See CodeHub in Action</h2>
                 <p>Watch how CodeHub can transform your development workflow</p>
                 <div class="demo-video">
-                    <!-- <img src="/api/placeholder/800/450" alt="CodeHub Demo Video"> -->
                     <div class="play-button">
                         <i class="fas fa-play"></i>
                     </div>
@@ -263,7 +259,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-    // Mobile menu toggle
+
     const menuToggle = document.querySelector('.menu-toggle');
     const navMenu = document.querySelector('.nav-menu');
     
@@ -273,8 +269,6 @@
             document.body.classList.toggle('menu-open');
         });
     }
-    
-    // Close menu when clicking outside
     document.addEventListener('click', function(event) {
         if (navMenu && navMenu.classList.contains('active') && 
             !event.target.closest('.nav-menu') && 
@@ -283,23 +277,20 @@
             document.body.classList.remove('menu-open');
         }
     });
-    
-    // Smooth scrolling for anchor links
+
     const anchorLinks = document.querySelectorAll('a[href^="#"]');
     
     anchorLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             const targetId = this.getAttribute('href');
             
-            // Skip if it's just "#"
             if (targetId === '#') return;
             
             const targetElement = document.querySelector(targetId);
             
             if (targetElement) {
                 e.preventDefault();
-                
-                // Close mobile menu if open
+   
                 if (navMenu && navMenu.classList.contains('active')) {
                     navMenu.classList.remove('active');
                     document.body.classList.remove('menu-open');
@@ -312,8 +303,7 @@
             }
         });
     });
-    
-    // Video play button simulation
+
     const demoVideo = document.querySelector('.demo-video');
     if (demoVideo) {
         demoVideo.addEventListener('click', function() {
@@ -321,7 +311,7 @@
         });
     }
     
-    // Fixed header on scroll
+
     const header = document.querySelector('header');
     const navbar = document.querySelector('.navbar');
     
@@ -334,8 +324,7 @@
             }
         });
     }
-    
-    // Animation on scroll
+
     const animateElements = document.querySelectorAll('.feature-card, .step, .pricing-card');
     
     function checkScroll() {
@@ -349,13 +338,13 @@
         });
     }
     
-    // Check elements on load
+
     window.addEventListener('load', checkScroll);
     
-    // Check elements on scroll
+
     window.addEventListener('scroll', checkScroll);
     
-    // Form validation for newsletter (if any)
+
     const newsletterForm = document.querySelector('.newsletter-form');
     
     if (newsletterForm) {
@@ -368,8 +357,7 @@
                 alert('Please enter your email address');
                 return;
             }
-            
-            // Simulate form submission
+
             alert('Thank you for subscribing!');
             emailInput.value = '';
         });

@@ -1,3 +1,40 @@
+<?php
+
+session_start();
+include '../connection.php';
+
+if (isset($_POST['login'])) {
+    $email = trim($_POST['email']);
+    $password = $_POST['password'];
+
+    $stmt = $con->prepare("SELECT user_id, username, password_hash FROM users WHERE email = ?");
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $stmt->store_result();
+
+    if ($stmt->num_rows == 1) {
+        $stmt->bind_result($id, $username, $hashed_password);
+        $stmt->fetch();
+
+        if (password_verify($password, $hashed_password)) {
+            $_SESSION['user_id'] = $id;
+            $_SESSION['username'] = $username;
+            header("Location: ../dashboard.php");
+            exit();
+        } else {
+            echo "Invalid password.";
+        }
+    } else {
+        echo "No account found with that email.";
+    }
+
+    $stmt->close();
+    $conn->close();
+}
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,21 +60,15 @@
                 <div class="alert-danger"><?php echo $login_err; ?></div>
             <?php endif; ?>
 
-            <form action="backend/login.php" method="post">
+            <form action="login.php" method="post">
                 <div class="form-group">
                     <label for="username">Username or Email</label>
-                    <input type="text" name="username" id="username" class="form-control" placeholder="Enter your Username or Email" required>
-                    <?php if (!empty($username_err)): ?>
-                        <span class="invalid-feedback"><?php echo $username_err; ?></span>
-                    <?php endif; ?>
+                    <input type="email" name="email" id="username" class="form-control" placeholder="Enter your Username or Email" required>
                 </div>
                 
                 <div class="form-group">
                     <label for="password">Password</label>
                     <input type="password" name="password" id="password" class="form-control" placeholder="Enter your Password" required>
-                    <?php if (!empty($password_err)): ?>
-                        <span class="invalid-feedback"><?php echo $password_err; ?></span>
-                    <?php endif; ?>
                 </div>
                 
                 <div class="remember-me">
@@ -50,21 +81,8 @@
                 </div>
                 
                 <div class="form-group">
-                    <input type="submit" class="btn btn-primary btn-block" value="Login">
+                    <input type="submit" name="login" class="btn btn-primary btn-block" value="Login">
                 </div>
-                
-                <!-- <div class="social-login">
-                    <p>Or login with</p>
-                    <div class="social-buttons">
-                        <a href="#" class="social-button github">
-                            <i class="fab fa-github"></i> GitHub
-                        </a>
-                        <a href="#" class="social-button google">
-                            <i class="fab fa-google"></i> Google
-                        </a>
-                    </div>
-                </div> -->
-                
                 <div class="form-footer">
                     <p>Don't have an account? <a href="register.php">Sign up here</a></p>
                 </div>

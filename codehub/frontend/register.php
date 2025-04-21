@@ -1,3 +1,46 @@
+<?php
+
+require_once('../connection.php');
+
+if (isset($_POST['register'])) {
+    $username = trim($_POST['username']);
+    $email = trim($_POST['email']);
+    $password_raw = $_POST['password'];
+    $confirm_password = $_POST['confirm_password'];
+
+    if ($password_raw !== $confirm_password) {
+        echo "Passwords do not match!";
+        exit;
+    }
+
+    $password = password_hash($password_raw, PASSWORD_BCRYPT);
+
+
+    //$password = password_hash($_POST['password'], PASSWORD_BCRYPT); // Secure hash
+
+    // Check if email or username already exists
+    $check = $con->prepare("SELECT user_id FROM users WHERE email = ? OR username = ?");
+    $check->bind_param("ss", $email, $username);
+    $check->execute();
+    $check->store_result();
+
+    if ($check->num_rows > 0) {
+        echo "Email or Username already exists!";
+    } else {
+        $stmt = $con->prepare("INSERT INTO users (username, email, password_hash) VALUES (?, ?, ?)");
+        $stmt->bind_param("sss", $username, $email, $password);
+        if ($stmt->execute()) {
+            echo '<script>alert("Registration successful! Please login.")</script>';
+            echo '<script>window.location.href = "../index.php";</script>';
+        } else {
+            echo "Something went wrong. Try again.";
+        }
+    }
+}
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,80 +62,29 @@
                 <p>Start storing and sharing your code snippets</p>
             </div>
 
-            <?php if (!empty($success_message)): ?>
-                <div class="success-message"><?php echo $success_message; ?></div>
-            <?php endif; ?>
-
-            <form action="backend/login.php" method="post">
-                <div class="form-group">
-                    <label for="fname">First name</label>
-                    <input type="text" name="fname" id="username" class="form-control" placeholder="Enter your First Name" required>
-                    <?php if (!empty($username_err)): ?>
-                        <span class="invalid-feedback"><?php echo $username_err; ?></span>
-                    <?php endif; ?>
-                </div>
-                <div class="form-group">
-                    <label for="fname">Last name</label>
-                    <input type="text" name="lname" id="username" class="form-control" placeholder="Enter your Last Name" required>
-                    <?php if (!empty($username_err)): ?>
-                        <span class="invalid-feedback"><?php echo $username_err; ?></span>
-                    <?php endif; ?>
-                </div>
-
-
+            <form action="register.php" method="post">
                 <div class="form-group">
                     <label for="username">Username</label>
                     <input type="text" name="username" id="username" class="form-control" placeholder="Enter your User Name" required>
-                    <?php if (!empty($username_err)): ?>
-                        <span class="invalid-feedback"><?php echo $username_err; ?></span>
-                    <?php endif; ?>
                 </div>
                 
                 <div class="form-group">
                     <label for="email">Email</label>
                     <input type="email" name="email" id="email" class="form-control" placeholder="Enter your Email" required>
-                    <?php if (!empty($email_err)): ?>
-                        <span class="invalid-feedback"><?php echo $email_err; ?></span>
-                    <?php endif; ?>
                 </div>
                 
                 <div class="form-group">
                     <label for="password">Password</label>
                     <input type="password" name="password" id="password" class="form-control" placeholder="Enter your Password" required>
-                    <?php if (!empty($password_err)): ?>
-                        <span class="invalid-feedback"><?php echo $password_err; ?></span>
-                    <?php endif; ?>
                 </div>
                 
                 <div class="form-group">
                     <label for="confirm_password">Confirm Password</label>
                     <input type="password" name="confirm_password" id="confirm_password" class="form-control" placeholder="Confirm your Password" required>
-                    <?php if (!empty($confirm_password_err)): ?>
-                        <span class="invalid-feedback"><?php echo $confirm_password_err; ?></span>
-                    <?php endif; ?>
                 </div>
                 
-                <!-- <div class="plan-selection">
-                    <h3>Choose Your Plan</h3>
-                    <div class="plan-options">
-                        <div class="plan-option <?php echo $selected_plan === 'free' ? 'selected' : ''; ?>" data-plan="free">
-                            <div class="plan-name">Free <span class="checkmark"><i class="fas fa-check"></i></span></div>
-                            <div class="plan-price">$0/month</div>
-                        </div>
-                        <div class="plan-option <?php echo $selected_plan === 'pro' ? 'selected' : ''; ?>" data-plan="pro">
-                            <div class="plan-name">Pro <span class="checkmark"><i class="fas fa-check"></i></span></div>
-                            <div class="plan-price">$9.99/month</div>
-                        </div>
-                        <div class="plan-option <?php echo $selected_plan === 'team' ? 'selected' : ''; ?>" data-plan="team">
-                            <div class="plan-name">Team <span class="checkmark"><i class="fas fa-check"></i></span></div>
-                            <div class="plan-price">$29.99/month</div>
-                        </div>
-                    </div>
-                    <input type="hidden" name="plan" id="plan" value="<?php echo $selected_plan; ?>">
-                </div> -->
-                
                 <div class="form-group">
-                    <input type="submit" class="btn btn-primary btn-block" value="Create Account">
+                <input type="submit" name="register" class="btn btn-primary btn-block" value="Create Account">
                 </div>
                 
                 <div class="form-footer">
@@ -103,3 +95,4 @@
     </section>
 </body>
 </html>
+
