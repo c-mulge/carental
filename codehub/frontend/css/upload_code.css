@@ -54,6 +54,7 @@ a:hover {
     height: 100vh;
     overflow-y: auto;
     transition: var(--transition);
+    z-index: 100;
 }
 
 .sidebar-header {
@@ -142,7 +143,7 @@ a:hover {
     transition: var(--transition);
 }
 
-.dashboard-header {
+.page-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -154,20 +155,141 @@ a:hover {
     color: var(--dark-color);
 }
 
-.dashboard-actions {
+.breadcrumb {
     display: flex;
-    gap: 10px;
+    align-items: center;
+    font-size: 0.9rem;
+    color: var(--secondary-color);
 }
 
+.breadcrumb a {
+    color: var(--primary-color);
+}
+
+.breadcrumb i {
+    margin: 0 8px;
+    font-size: 0.8rem;
+}
+
+/* Form specific styles */
+.form-card {
+    background-color: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    padding: 30px;
+    margin-bottom: 30px;
+}
+
+.form-header {
+    margin-bottom: 25px;
+}
+
+.form-header h2 {
+    font-size: 1.5rem;
+    color: var(--dark-color);
+    margin-bottom: 10px;
+}
+
+.form-header p {
+    color: var(--secondary-color);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--dark-color);
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    background-color: white;
+    color: var(--body-color);
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.1);
+}
+
+textarea.form-control {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.code-editor {
+    font-family: 'Courier New', Courier, monospace;
+    min-height: 300px;
+    border: 1px solid var(--border-color);
+    background-color: #1e1e1e;
+    color: #d4d4d4;
+    border-radius: var(--border-radius);
+    padding: 15px;
+    line-height: 1.5;
+    font-size: 0.95rem;
+}
+
+.form-select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    background-color: white;
+    color: var(--body-color);
+    font-size: 1rem;
+    transition: var(--transition);
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%236c757d' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+}
+
+.form-select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.1);
+}
+
+.form-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+}
+
+.form-footer-links a {
+    margin-right: 15px;
+    color: var(--secondary-color);
+    font-size: 0.95rem;
+}
+
+.form-footer-links a:hover {
+    color: var(--primary-color);
+}
+
+/* Button styles */
 .btn {
     display: inline-block;
-    padding: 10px 20px;
+    padding: 12px 24px;
     border-radius: var(--border-radius);
     font-weight: 600;
     text-align: center;
     cursor: pointer;
     transition: var(--transition);
     border: none;
+    font-size: 1rem;
 }
 
 .btn-primary {
@@ -191,160 +313,57 @@ a:hover {
     color: white;
 }
 
-.dashboard-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
+.btn-secondary {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+    color: white;
+}
+
+/* Tips Card */
+.tips-card {
+    background-color: rgba(0, 102, 255, 0.05);
+    border-left: 4px solid var(--primary-color);
+    padding: 20px;
+    border-radius: var(--border-radius);
     margin-bottom: 30px;
 }
 
-.card {
-    background-color: white;
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow);
-    padding: 25px;
-    transition: var(--transition);
-}
-
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-}
-
-.card-header {
+.tips-title {
     display: flex;
     align-items: center;
-    margin-bottom: 15px;
-}
-
-.card-icon {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: rgba(0, 102, 255, 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 15px;
-}
-
-.card-icon i {
-    font-size: 20px;
     color: var(--primary-color);
-}
-
-.card-title {
-    font-size: 1.2rem;
-    margin-bottom: 5px;
-}
-
-.card-subtitle {
-    color: var(--secondary-color);
-    font-size: 0.9rem;
-}
-
-.quick-actions {
-    margin-top: 20px;
-}
-
-.quick-action-btn {
-    display: inline-flex;
-    align-items: center;
-    padding: 8px 15px;
-    background-color: var(--light-color);
-    border-radius: var(--border-radius);
-    color: var(--body-color);
-    margin-right: 10px;
+    font-weight: 600;
     margin-bottom: 10px;
-    font-size: 0.9rem;
 }
 
-.quick-action-btn i {
-    margin-right: 5px;
-    color: var(--primary-color);
+.tips-title i {
+    margin-right: 8px;
 }
 
-.quick-action-btn:hover {
-    background-color: var(--primary-color);
-    color: white;
+.tips-content {
+    font-size: 0.95rem;
 }
 
-.quick-action-btn:hover i {
-    color: white;
+.tips-content ul {
+    padding-left: 20px;
+    margin-top: 10px;
 }
 
-/* Recent Activity Section */
-.recent-activity {
-    background-color: white;
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow);
-    padding: 25px;
-    margin-bottom: 30px;
-}
-
-.section-title {
-    font-size: 1.3rem;
-    margin-bottom: 20px;
-    color: var(--dark-color);
-    display: flex;
-    align-items: center;
-}
-
-.section-title i {
-    margin-right: 10px;
-    color: var(--primary-color);
-}
-
-.activity-list {
-    list-style: none;
-}
-
-.activity-item {
-    padding: 15px 0;
-    border-bottom: 1px solid var(--border-color);
-    display: flex;
-    align-items: flex-start;
-}
-
-.activity-item:last-child {
-    border-bottom: none;
-}
-
-.activity-icon {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: rgba(0, 102, 255, 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 15px;
-    flex-shrink: 0;
-}
-
-.activity-icon i {
-    font-size: 16px;
-    color: var(--primary-color);
-}
-
-.activity-content {
-    flex: 1;
-}
-
-.activity-text {
+.tips-content li {
     margin-bottom: 5px;
+    position: relative;
+    padding-left: 15px;
 }
 
-.activity-meta {
-    color: var(--secondary-color);
-    font-size: 0.85rem;
-    display: flex;
-    align-items: center;
-}
-
-.activity-meta i {
-    margin-right: 5px;
-    font-size: 0.8rem;
+.tips-content li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
 }
 
 /* Mobile responsiveness */
@@ -388,17 +407,13 @@ a:hover {
 }
 
 @media (max-width: 768px) {
-    .dashboard-cards {
-        grid-template-columns: 1fr;
-    }
-
-    .dashboard-header {
+    .form-footer {
         flex-direction: column;
         align-items: flex-start;
     }
 
-    .dashboard-actions {
-        margin-top: 15px;
+    .form-footer-links {
+        margin-bottom: 15px;
     }
 }
 
