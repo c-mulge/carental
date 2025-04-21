@@ -1,7 +1,6 @@
 <?php
-// dashboard.php
 session_start();
-require 'connection.php'; // DB connection
+require 'connection.php'; 
 if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
     exit();
