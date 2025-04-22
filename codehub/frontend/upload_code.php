@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 
     // Insert snippet into `snippets`
-    $stmt = $conn->prepare("INSERT INTO snippets (repo_id, title, code, language) VALUES (?, ?, ?, ?)");
+    $stmt = $con->prepare("INSERT INTO snippets (repo_id, title, code, language) VALUES (?, ?, ?, ?)");
     $stmt->bind_param("isss", $repo_id, $title, $code, $language);
     
     if ($stmt->execute()) {
@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 if (empty($tag)) continue;
 
                 // Check if tag already exists
-                $tag_stmt = $conn->prepare("SELECT tag_id FROM tags WHERE name = ?");
+                $tag_stmt = $con->prepare("SELECT tag_id FROM tags WHERE name = ?");
                 $tag_stmt->bind_param("s", $tag);
                 $tag_stmt->execute();
                 $tag_stmt->store_result();
@@ -47,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     $tag_stmt->fetch();
                 } else {
                     // Insert new tag
-                    $insert_tag = $conn->prepare("INSERT INTO tags (name) VALUES (?)");
+                    $insert_tag = $con->prepare("INSERT INTO tags (name) VALUES (?)");
                     $insert_tag->bind_param("s", $tag);
                     $insert_tag->execute();
                     $tag_id = $insert_tag->insert_id;
@@ -56,16 +56,20 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 $tag_stmt->close();
 
                 // Associate snippet with tag
-                $link_stmt = $conn->prepare("INSERT INTO snippet_tags (snippet_id, tag_id) VALUES (?, ?)");
+                $link_stmt = $con->prepare("INSERT INTO snippet_tags (snippet_id, tag_id) VALUES (?, ?)");
                 $link_stmt->bind_param("ii", $snippet_id, $tag_id);
                 $link_stmt->execute();
                 $link_stmt->close();
             }
         }
 
-        echo "Snippet uploaded successfully!";
+        $_SESSION['upload_message'] = "Snippet uploaded successfully!";
+        header("Location: upload_code.php");
+        exit();
     } else {
-        echo "Failed to upload snippet!";
+        $_SESSION['upload_message'] = "Failed to upload snippet!";
+        header("Location: upload_code.php");
+        exit();
     }
 }
 ?>
@@ -79,8 +83,42 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <title>Upload Code - CodeHub</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="css/upload_code.css">
+    <style>
+        .upload-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #f0f9ff;
+    color: #0c5460;
+    padding: 20px 30px;
+    border: 1px solid #b8daff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    font-size: 18px;
+    font-weight: 500;
+    z-index: 9999;
+    animation: fadeOut 3s ease forwards;
+}
+
+/* Optional fade out */
+@keyframes fadeOut {
+    0%   { opacity: 1; }
+    80%  { opacity: 1; }
+    100% { opacity: 0; display: none; }
+}
+
+    </style>
 </head>
 <body>
+<?php if (isset($_SESSION['upload_message'])): ?>
+    <div class="upload-message">
+        <?php echo $_SESSION['upload_message']; ?>
+        <?php unset($_SESSION['upload_message']); ?>
+        <!-- <button onclick="this.parentElement.style.display='none';" style="margin-left: 15px;">✖</button> -->
+    </div>
+<?php endif; ?>
+
     <!-- Mobile Menu Toggle -->
     <div class="menu-toggle">
         <i class="fas fa-bars"></i>
@@ -177,6 +215,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     <p>Share your code snippets with the CodeHub community</p>
                 </div>
                 <form action="upload_code.php" method="POST">
+                <input type="hidden" name="repo_id" value="<?php echo htmlspecialchars($_GET['repo_id'] ?? ''); ?>">
+
                     <div class="form-group">
                         <label for="title" class="form-label">Snippet Title</label>
                         <input type="text" id="title" name="title" class="form-control" placeholder="Enter a descriptive title" required>

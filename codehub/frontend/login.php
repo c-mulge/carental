@@ -29,7 +29,7 @@ if (isset($_POST['login'])) {
     }
 
     $stmt->close();
-    $conn->close();
+    $con->close();
 }
 ?>
 

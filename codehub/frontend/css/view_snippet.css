@@ -1,0 +1,123 @@
+pre {
+    margin: 0;
+    border-radius: var(--border-radius);
+    overflow: auto;
+}
+
+code {
+    font-family: 'Fira Code', Consolas, Monaco, 'Andale Mono', monospace;
+    font-size: 14px;
+    line-height: 1.5;
+    padding: 0;
+}
+
+.tag-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.tag-item {
+    background-color: rgba(0, 102, 255, 0.1);
+    color: var(--primary-color);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.tag-item:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.code-header {
+    background-color: #1e2433;
+    color: #e1e6f0;
+    padding: 12px 15px;
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.code-header .language-badge {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.code-header .action-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.code-header .action-button {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: #e1e6f0;
+    width: 32px;
+    height: 32px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.code-header .action-button:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.code-container {
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    margin: 20px 0;
+}
+
+.code-body {
+    background-color: #1e1e1e;
+    padding: 15px;
+    border-bottom-left-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
+    overflow-x: auto;
+}
+
+.snippet-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.snippet-info-item {
+    background-color: white;
+    border-radius: var(--border-radius);
+    padding: 15px;
+    box-shadow: var(--shadow);
+}
+
+.snippet-info-label {
+    font-size: 0.8rem;
+    color: var(--secondary-color);
+    margin-bottom: 5px;
+}
+
+.snippet-info-value {
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+
+.snippet-info-value i {
+    margin-right: 5px;
+    color: var(--primary-color);
+}

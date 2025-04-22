@@ -143,7 +143,7 @@ while ($row = $result->fetch_assoc()) {
                             </div>
                             <p><?php echo htmlspecialchars($repo['description'] ?: "No description provided."); ?></p>
                             <div class="quick-actions">
-                                <a href="view-repository.php?id=<?php echo $repo['repo_id']; ?>" class="quick-action-btn">
+                                <a href="view_repo.php?id=<?php echo $repo['repo_id']; ?>" class="quick-action-btn">
                                     <i class="fas fa-eye"></i> View
                                 </a>
                                 <a href="edit-repository.php?id=<?php echo $repo['repo_id']; ?>" class="quick-action-btn">
